@@ -819,10 +819,6 @@
                     <div class="panel-body-container" data-item="panel-body-container" id="form-3">
                         <div class="row no-margin no-padding">
                             <div class="form-group">
-                                <label for="panel-3-input-0">Empleado a asignar<span class="required-field" title="Requerido">*</span></label>
-                                <select class="form-control input-sm full-width-percent" id="panel-3-input-0"></select>
-                            </div>
-                            <div class="form-group">
                                 <label for="panel-3-input-1">Tipo de usuario<span class="required-field" title="Requerido">*</span></label>
                                 <select class="form-control input-sm" id="panel-3-input-1"></select>
                             </div>

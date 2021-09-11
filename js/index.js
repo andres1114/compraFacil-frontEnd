@@ -9,41 +9,6 @@ var excelName = {};
 function main() {
     $("body").show("fade",400);
 
-    $("#panel-9-input-1, #panel-10-input-1").datetimepicker({
-        dateFormat: 'yy-mm-dd'
-        ,showButtonPanel: true
-        ,showOtherMonths: true
-        ,selectOtherMonths: true
-        ,minDate: -7
-        ,maxDate: 1
-        ,controlType: 'select'
-        ,oneLine: true
-        ,timeFormat: 'HH:mm:ss'
-    }).datetimepicker("setDate",new Date());
-    $("#table-9-date-field-1, #table-9-date-field-2").datepicker({
-        dateFormat: 'yy-mm-dd'
-        ,showButtonPanel: true
-        ,showOtherMonths: true
-        ,selectOtherMonths: true
-    }).datepicker("setDate",new Date());
-    functionHandler({
-        functionName: "dateDaysControl"
-        ,getNodeMethod: "id"
-        ,nodeItem: "table-9-date-field-1"
-        ,inputType: "date"
-        ,action: "remove"
-        ,days: 90
-    });
-
-    timer_2 = setInterval(function(){
-        if ($("#panel-9-input-7").prop("checked")) {
-            $("#panel-9-input-1").datetimepicker("setDate",new Date());
-        }
-        if ($("#panel-10-input-7").prop("checked")) {
-            $("#panel-10-input-1").datetimepicker("setDate",new Date());
-        }
-    },1000);
-
     $("#panel-1-input-10").bind("click", function() {
         dataChangeHandler({
             changeName: "personRegistry"
@@ -585,58 +550,58 @@ function main() {
         }
         ,triggerOnChange: true
     });
-    functionHandler({
-        functionName: "selectFiller"
-        ,callHeader: "showCities"
-        ,getNodeMethod: "id"
-        ,nodeItem: "panel-5-input-1"
-        ,deleteNodeContent: true
-        ,addDividerToNode: false
-        ,addNodeBeforeLoad: false
-        ,triggerChosen: true
-        ,chosenOptions: {
-            widthUnit: "%"
-            ,widthValue: 100
-        }
-        ,triggerOnChange: false
-    });
-    functionHandler({
-        functionName: "selectFiller"
-        ,callHeader: "showCities"
-        ,getNodeMethod: "id"
-        ,nodeItem: "panel-6-input-1"
-        ,deleteNodeContent: true
-        ,addDividerToNode: false
-        ,addNodeBeforeLoad: false
-        ,triggerChosen: true
-        ,chosenOptions: {
-            widthUnit: "%"
-            ,widthValue: 100
-        }
-        ,triggerOnChange: false
-    });
-    functionHandler({
-        functionName: "selectFiller"
-        ,callHeader: "showPersonIdType"
-        ,getNodeMethod: "id"
-        ,nodeItem: "panel-5-input-2"
-        ,deleteNodeContent: true
-        ,addDividerToNode: false
-        ,addNodeBeforeLoad: false
-        ,triggerChosen: false
-        ,triggerOnChange: false
-    });
-    functionHandler({
-        functionName: "selectFiller"
-        ,callHeader: "showPersonIdType"
-        ,getNodeMethod: "id"
-        ,nodeItem: "panel-6-input-2"
-        ,deleteNodeContent: true
-        ,addDividerToNode: false
-        ,addNodeBeforeLoad: false
-        ,triggerChosen: false
-        ,triggerOnChange: false
-    });
+    // functionHandler({
+    //     functionName: "selectFiller"
+    //     ,callHeader: "showCities"
+    //     ,getNodeMethod: "id"
+    //     ,nodeItem: "panel-5-input-1"
+    //     ,deleteNodeContent: true
+    //     ,addDividerToNode: false
+    //     ,addNodeBeforeLoad: false
+    //     ,triggerChosen: true
+    //     ,chosenOptions: {
+    //         widthUnit: "%"
+    //         ,widthValue: 100
+    //     }
+    //     ,triggerOnChange: false
+    // });
+    // functionHandler({
+    //     functionName: "selectFiller"
+    //     ,callHeader: "showCities"
+    //     ,getNodeMethod: "id"
+    //     ,nodeItem: "panel-6-input-1"
+    //     ,deleteNodeContent: true
+    //     ,addDividerToNode: false
+    //     ,addNodeBeforeLoad: false
+    //     ,triggerChosen: true
+    //     ,chosenOptions: {
+    //         widthUnit: "%"
+    //         ,widthValue: 100
+    //     }
+    //     ,triggerOnChange: false
+    // });
+    // functionHandler({
+    //     functionName: "selectFiller"
+    //     ,callHeader: "showPersonIdType"
+    //     ,getNodeMethod: "id"
+    //     ,nodeItem: "panel-5-input-2"
+    //     ,deleteNodeContent: true
+    //     ,addDividerToNode: false
+    //     ,addNodeBeforeLoad: false
+    //     ,triggerChosen: false
+    //     ,triggerOnChange: false
+    // });
+    // functionHandler({
+    //     functionName: "selectFiller"
+    //     ,callHeader: "showPersonIdType"
+    //     ,getNodeMethod: "id"
+    //     ,nodeItem: "panel-6-input-2"
+    //     ,deleteNodeContent: true
+    //     ,addDividerToNode: false
+    //     ,addNodeBeforeLoad: false
+    //     ,triggerChosen: false
+    //     ,triggerOnChange: false
+    // });
     functionHandler({
         functionName: "selectFiller"
         ,callHeader: "showProviders"

@@ -164,21 +164,21 @@
     padding-top: 5px;
     text-align: center;
     vertical-align: middle;
-    color: #3c3c3c;
+    color: #D65004;
     font-size: 26pt;
 }
 .icon-menu-item > .icon-menu-item-text {
     width: 90%;
     text-align: center;
     vertical-align: middle;
-    color: #3c3c3c;
+    color: #D65004;
     font-size: 11pt;
     margin-left: auto;
     margin-right: auto;
 }
 .icon-menu-item > hr {
     width: 70%;
-    border-top-color: #3c3c3c;
+    border-top-color: #D65004;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: auto;

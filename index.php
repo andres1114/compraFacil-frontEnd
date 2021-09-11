@@ -81,7 +81,7 @@
                         <ul class="list-group">
                             <li class="list-group-item pointer unselectable cube-box" id="menu-3-option-1">
                                 <span class="far fa-chevron-right" style="margin-right: 5px;"></span>
-                                <span>Agregar proveedor</span>
+                                <span>Agregar almacén</span>
                             </li>
                             <li class="list-group-item pointer unselectable cube-box" onclick="functionHandler({functionName: 'closeMenuItem'})">
                                 <span class="far fa-chevron-right" style="margin-right: 5px;"></span>
@@ -96,24 +96,6 @@
                                 <span class="far fa-chevron-right" style="margin-right: 5px;"></span>
                                 <span>Agregar producto</span>
                             </li>
-                            <li class="list-group-item pointer unselectable cube-box" onclick="functionHandler({functionName: 'closeMenuItem'})">
-                                <span class="far fa-chevron-right" style="margin-right: 5px;"></span>
-                                <span>Volver a menú</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="options-container-5" data-item="option-panel" style="display: none;">
-                        <div class="options-title">Acciones</div>
-                        <ul class="list-group">
-                            <li class="list-group-item pointer unselectable cube-box" onclick="functionHandler({functionName: 'closeMenuItem'})">
-                                <span class="far fa-chevron-right" style="margin-right: 5px;"></span>
-                                <span>Volver a menú</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="options-container-6" data-item="option-panel" style="display: none;">
-                        <div class="options-title">Acciones</div>
-                        <ul class="list-group">
                             <li class="list-group-item pointer unselectable cube-box" onclick="functionHandler({functionName: 'closeMenuItem'})">
                                 <span class="far fa-chevron-right" style="margin-right: 5px;"></span>
                                 <span>Volver a menú</span>
@@ -159,18 +141,7 @@
             </div>
             <div class="col-xs-10 no-margin no-padding full-height-vh background-image-1" id="right-panel">
                 <div id="icon-menu">
-                    <div class="row no-margin no-padding">
-                        <div class="col-xs-2 icon-menu-container">
-                            <div class="icon-menu-item" id="icon-menu-5">
-                                <div class="icon-menu-item-icon">
-                                    <span class="fas fa-dolly-flatbed-alt"></span>
-                                </div>
-                                <hr/>
-                                <div class="icon-menu-item-text">
-                                    <span>Kardex<br/>&nbsp;</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row no-margin no-padding">                        
                         <div class="col-xs-2 icon-menu-container">
                             <div class="icon-menu-item" id="icon-menu-2">
                                 <div class="icon-menu-item-icon">
@@ -196,11 +167,11 @@
                         <div class="col-xs-2 icon-menu-container">
                             <div class="icon-menu-item" id="icon-menu-3">
                                 <div class="icon-menu-item-icon">
-                                    <span class="fas fa-person-dolly"></span>
+                                    <span class="fas fa-store"></span>
                                 </div>
                                 <hr/>
                                 <div class="icon-menu-item-text">
-                                    <span>Configurar proveedor</span>
+                                    <span>Configurar almacén</span>
                                 </div>
                             </div>
                         </div>
@@ -216,6 +187,17 @@
                             </div>
                         </div>
                         <div class="col-xs-2 icon-menu-container">
+                            <div class="icon-menu-item" id="icon-menu-7">
+                                <div class="icon-menu-item-icon">
+                                    <span class="fas fa-th-list"></span>
+                                </div>
+                                <hr/>
+                                <div class="icon-menu-item-text">
+                                    <span>Reportes<br/>&nbsp;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 icon-menu-container">
                             <div class="icon-menu-item" id="icon-menu-0">
                                 <div class="icon-menu-item-icon">
                                     <span class="fas fas fa-history"></span>
@@ -223,32 +205,6 @@
                                 <hr/>
                                 <div class="icon-menu-item-text">
                                     <span>Ver<br/>historial</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row no-margin no-padding">
-                        <div class="col-xs-2 icon-menu-container">
-                            <div class="icon-menu-item" id="icon-menu-6">
-                                <div class="icon-menu-item-icon">
-                                    <span class="fas fa-cash-register"></span>
-                                </div>
-                                <hr/>
-                                <div class="icon-menu-item-text">
-                                    <span>Generar Venta</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row no-margin no-padding">
-                            <div class="col-xs-2 icon-menu-container">
-                                <div class="icon-menu-item" id="icon-menu-7">
-                                    <div class="icon-menu-item-icon">
-                                        <span class="fas fa-th-list"></span>
-                                    </div>
-                                    <hr/>
-                                    <div class="icon-menu-item-text">
-                                        <span>Reportes<br/>&nbsp;</span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -329,7 +285,7 @@
                 <div class="row no-margin no-padding" id="menu-container-3" data-options-id="options-container-3" data-item="menu-panel" style="display: none;">
                     <div class="panel panel-primary no-margin cube-box">
                         <div class="panel-heading cube-box">
-                            <span>Proveedor</span>
+                            <span>Almacén</span>
                             <button type="button" class="close" title="Volver" onclick="functionHandler({functionName: 'closeMenuItem'})">
                                 <span aria-hidden="true">
                                     <span class="fas fa-long-arrow-left"></span>
@@ -350,10 +306,9 @@
                                         <input type="checkbox" id="table-3-checkall"/>
                                     </th>
                                     <th class="center-text pointer">IT</th>
-                                    <th class="center-text pointer">Identificación</th>
-                                    <th class="center-text pointer">Nombre proveedor</th>
-                                    <th class="center-text pointer">Teléfono proveedor</th>
-                                    <th class="center-text pointer">Ciudad</th>
+                                    <th class="center-text pointer">Nombre almacén</th>
+                                    <th class="center-text pointer">Página web del almacén</th>
+                                    <th class="center-text pointer">Logo almacén</th>
                                     <th class="center-text pointer">Acción</th>
                                     <th class="center-text pointer">Estado</th>
                                 </tr>
@@ -400,42 +355,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row no-margin no-padding" id="menu-container-5" data-options-id="options-container-5" data-item="menu-panel" style="display: none;">
-                    <div class="panel panel-primary no-margin cube-box">
-                        <div class="panel-heading cube-box">
-                            <span>Kardex</span>
-                            <button type="button" class="close" title="Volver" onclick="functionHandler({functionName: 'closeMenuItem'})">
-                                <span aria-hidden="true">
-                                    <span class="fas fa-long-arrow-left"></span>
-                                </span>
-                                <span class="sr-only">Volver</span>
-                            </button>
-                        </div>
-                        <div class="panel-body cube-box" data-item="window-to-resize-5">
-                            <table class="table table-striped table-condensed table-hover" id="table-5">
-                                <thead>
-                                <tr>
-                                    <th colspan="7">
-                                        <input type="text" class="form-control input-sm full-width-percent" data-search-input="data-table" placeholder="Buscar..."/>
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <th class="center-text" colspan="1">
-                                        <input type="checkbox" id="table-5-checkall"/>
-                                    </th>
-                                    <th class="center-text pointer">IT</th>
-                                    <th class="center-text pointer">Producto</th>
-                                    <th class="center-text pointer">Tipo producto</th>
-                                    <th class="center-text pointer">proveedor</th>
-                                    <th class="center-text pointer">Kardex</th>
-                                    <th class="center-text pointer">Acción</th>
-                                </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="row no-margin no-padding" id="menu-container-7" data-options-id="options-container-7" data-item="menu-panel" style="display: none;">
                     <div class="panel panel-primary no-margin cube-box">
                         <div class="panel-heading cube-box">
@@ -448,147 +368,15 @@
                             </button>
                         </div>
                         <div class="panel-body cube-box" data-item="window-to-resize-7">
-                            <div id="panel-7-table-8-holder" data-item="table-holder" style="display: none;">
-                                <div class="row">
-                                    <div class="col-xs-9">
-                                        &nbsp;
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <button type="button" class="btn btn-default btn-sm pull-right" id="table-8-export-to-excel">Exportar <span style="color: mediumseagreen" class="fa fa-file-excel"></span></button>
-                                    </div>
-                                </div>
-                                <hr/>
-                                <table class="table table-striped table-condensed table-hover" id="table-8">
-                                    <thead>
-                                        <tr>
-                                            <th style=" text-align: center; vertical-align: middle; background-color:#D8E4BC !important; border: .5pt solid; border-color: black !important;">IT</th>
-                                            <th style=" text-align: center; vertical-align: middle; background-color:#D8E4BC !important; border: .5pt solid; border-color: black !important;">PRODUCTO</th>
-                                            <th style=" text-align: center; vertical-align: middle; background-color:#D8E4BC !important; border: .5pt solid; border-color: black !important;">TIPO DE PRODUCTO</th>
-                                            <th style=" text-align: center; vertical-align: middle; background-color:#D8E4BC !important; border: .5pt solid; border-color: black !important;">PROVEEDOR</th>
-                                            <th style=" text-align: center; vertical-align: middle; background-color:#D8E4BC !important; border: .5pt solid; border-color: black !important;">TOTAL</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
+                            <div id="panel-7-table-8-holder" data-item="table-holder" style="display: none;">                               
+                                <!-- Code... -->
                             </div>
                             <div id="panel-7-table-9-holder" data-item="table-holder" style="display: none;">
-                                <div class="row">
-                                    <div class="col-xs-9">
-                                        <div class="form-inline">
-                                            <div class="form-group">
-                                                <label>Desde</label>
-                                                <input type="text" class="form-control input-sm pointer disabled" id="table-9-date-field-1" readonly/>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Hasta</label>
-                                                <input type="text" class="form-control input-sm pointer disabled" id="table-9-date-field-2" readonly/>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Método de pago</label>
-                                                <select class="form-control input-sm" id="table-9-pay-method-id-field"></select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <button type="button" class="btn btn-default btn-sm pull-right" id="table-9-export-to-excel">Exportar <span style="color: mediumseagreen" class="fa fa-file-excel"></span></button>
-                                    </div>
-                                </div>
-                                <hr/>
-                                <table class="table table-striped table-condensed table-hover" id="table-9">
-                                    <thead>
-                                        <th style=" text-align: center; vertical-align: middle; background-color:#D8E4BC !important; border: .5pt solid; border-color: black !important;">IT</th>
-                                        <th style=" text-align: center; vertical-align: middle; background-color:#D8E4BC !important; border: .5pt solid; border-color: black !important;">FECHA DE VENTA</th>
-                                        <th style=" text-align: center; vertical-align: middle; background-color:#D8E4BC !important; border: .5pt solid; border-color: black !important;">MÉTODO DE PAGO</th>
-                                        <th style=" text-align: center; vertical-align: middle; background-color:#D8E4BC !important; border: .5pt solid; border-color: black !important;">TOTAL PAGO</th>
-                                        <th style=" text-align: center; vertical-align: middle; background-color:#D8E4BC !important; border: .5pt solid; border-color: black !important;">PRODUCTO</th>
-                                        <th style=" text-align: center; vertical-align: middle; background-color:#D8E4BC !important; border: .5pt solid; border-color: black !important;">PRECIO UNITARIO</th>
-                                        <th style=" text-align: center; vertical-align: middle; background-color:#D8E4BC !important; border: .5pt solid; border-color: black !important;">CANTIDAD VENDIDO</th>
-                                        <th style=" text-align: center; vertical-align: middle; background-color:#D8E4BC !important; border: .5pt solid; border-color: black !important;">TOTAL</th>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
+                                <!-- Code...  -->
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row no-margin no-padding" id="menu-container-6" data-options-id="options-container-6" data-item="menu-panel" style="display: none;">
-                    <div class="panel panel-primary no-margin cube-box">
-                        <div class="panel-heading cube-box">
-                            <span>Venta</span>
-                            <button type="button" class="close" title="Volver" onclick="functionHandler({functionName: 'closeMenuItem'})">
-                                <span aria-hidden="true">
-                                    <span class="fas fa-long-arrow-left"></span>
-                                </span>
-                                <span class="sr-only">Volver</span>
-                            </button>
-                        </div>
-                        <div class="panel-body cube-box" data-item="window-to-resize-6">
-                            <div class="row no-margin no-padding">
-                                <div class="col-xs-6 border-right" id="form-10">
-                                    <div class="form-group">
-                                        <label for="panel-10-input-1">Fecha</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control input-sm pointer disabled" id="panel-10-input-1" readonly/>
-                                            <span class="input-group-addon">
-                                            <input type="checkbox" id="panel-10-input-7" title="Obtener fecha automático" checked="checked">
-                                        </span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                    <div class="form-group" data-item="item-to-resize-1">
-                                        <label for="table-6">Productos disponibles</label>
-                                        <table class="table table-striped table-condensed table-hover" id="table-6">
-                                            <thead>
-                                            <tr>
-                                                <th colspan="4">
-                                                    <input type="text" class="form-control input-sm full-width-percent" data-search-input="data-table" placeholder="Buscar..."/>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th class="center-text pointer">Producto</th>
-                                                <th class="center-text pointer">Disponible</th>
-                                                <th class="center-text pointer">A vender</th>
-                                                <th class="center-text pointer">Agregar</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody></tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6">
-                                    <div class="form-group" data-item="item-to-resize-2">
-                                        <table class="table table-striped table-condensed table-hover full-height-percent" id="table-7">
-                                            <thead>
-                                                <tr>
-                                                    <th class="center-text pointer">Producto</th>
-                                                    <th class="center-text pointer">Cantidad</th>
-                                                    <th class="center-text pointer">Valor unitario</th>
-                                                    <th class="center-text pointer">Valor total</th>
-                                                    <th class="center-text pointer">Quitar</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody></tbody>
-                                        </table>
-                                    </div>
-                                    <hr/>
-                                    <div class="form-group">
-                                        <label for="panel-10-input-2">TOTAL</label>
-                                        <input type="text" class="form-control input-sm disabled" id="panel-10-input-2" readonly value="0"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="panel-10-input-3">Método de pago</label>
-                                        <select class="form-control input-sm" id="panel-10-input-3"></select>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr/>
-                            <div class="form-group">
-                                <button class="btn btn-success btn-sm pull-right" id="panel-10-input-4">Terminar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>                
                 <div class="row no-margin no-padding" id="menu-container-0" data-options-id="options-container-0" data-item="menu-panel" style="display: none;">
                     <div class="panel panel-primary no-margin cube-box">
                         <div class="panel-heading cube-box">
@@ -907,35 +695,33 @@
             <div class="panel panel-primary panel-shadow lobipanel no-margin no-padding" id="panel-5" data-idholder="NULL">
                 <div class="panel-heading" data-item="panel-heading">
                     <div class="panel-title">
-                        <span>Agregar proveedor</span>
+                        <span>Agregar almacén</span>
                         <button onclick="functionHandler({functionName: 'windowHandler', getNodeMethod: 'id', nodeItem: 'panel-5-container', action: 'close', onFunctionDone: function() { $('#form-2').find('[data-updated=\'1\']').removeAttr('data-updated'); }});" type="button" class="close" title="Cerrar">
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">Cerrar</span>
                         </button>
                     </div>
                 </div>
-                <div class="panel-body" data-item="panel-body" style="overflow: auto;">
+                <div class="panel-body" data-item="panel-body" style="overflow: auto;"> 
                     <div class="panel-body-container" data-item="panel-body-container" id="form-5">
                         <div class="row no-margin no-padding">
                             <div class="form-group">
-                                <label for="panel-5-input-1">Ciudad de proveedor<span class="required-field" title="Requerido">*</span></label>
-                                <select class="form-control input-sm" id="panel-5-input-1" required></select>
-                            </div>
+                                <label for="panel-5-input-1">
+                                    Nombre del almacén 
+                                    <span class="required-field" title="Requerido">*</span>
+                                </label>
+                                <input type="text" class="form-control input-sm" id="panel-5-input-1"/>
+                            </div>                            
                             <div class="form-group">
-                                <label for="panel-5-input-2">Tipo de identificación<span class="required-field" title="Requerido">*</span></label>
-                                <select class="form-control input-sm" id="panel-5-input-2" required></select>
-                            </div>
-                            <div class="form-group">
-                                <label for="panel-5-input-3">Número de identificación <span class="required-field" title="Requerido">*</span></label>
-                                <input type="text" class="form-control input-sm" id="panel-5-input-3" required/>
-                            </div>
-                            <div class="form-group">
-                                <label for="panel-5-input-4">Nombre de proveedor <span class="required-field" title="Requerido">*</span></label>
-                                <input type="text" class="form-control input-sm" id="panel-5-input-4"/>
+                                <label for="panel-5-input-2">
+                                    Página web de almacén 
+                                    <span class="required-field" title="Requerido">*</span>
+                                </label>
+                                <input type="text" class="form-control input-sm" id="panel-5-input-2"/>
                             </div>
                             <div class="form-group no-margin-bottom">
-                                <label for="panel-5-input-5">Teléfono de proveedor</label>
-                                <input type="text" class="form-control input-sm" id="panel-5-input-5" data-item="can-be-empty"/>
+                                <label for="panel-5-input-3">Logo almacén</label>
+                                <input type="file" class="form-control input-sm" id="panel-5-input-3" data-item="can-be-empty"/>
                             </div>
                         </div>
                         <hr/>
@@ -943,7 +729,7 @@
                             <div class="col-xs-12 no-margin no-padding">
                                 <div class="form-group">
                                     <label for="panel-5-input-6">&nbsp;</label>
-                                    <button class="btn btn-success btn-sm pull-right" id="panel-5-input-6">Agregar</button>
+                                    <button class="btn btn-success btn-sm pull-right" id="panel-5-input-4">Agregar</button>
                                 </div>
                             </div>
                         </div>
@@ -955,7 +741,7 @@
             <div class="panel panel-primary panel-shadow lobipanel no-margin no-padding" id="panel-6" data-idholder="NULL">
                 <div class="panel-heading" data-item="panel-heading">
                     <div class="panel-title">
-                        <span>Editar proveedor</span>
+                        <span>Editar almacén</span>
                         <button onclick="functionHandler({functionName: 'windowHandler', getNodeMethod: 'id', nodeItem: 'panel-6-container', action: 'close'});" type="button" class="close" title="Cerrar">
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">Cerrar</span>
@@ -966,32 +752,24 @@
                     <div class="panel-body-container" data-item="panel-body-container" id="form-6">
                         <div class="row no-margin no-padding">
                             <div class="form-group">
-                                <label for="panel-6-input-1">Ciudad de proveedor</label>
-                                <select class="form-control input-sm" id="panel-6-input-1" data-update-field="1" data-field-to-update="1"></select>
+                                <label for="panel-6-input-1">Nombre del almacén</label>
+                                <input type="text" class="form-control input-sm" id="panel-6-input-1" data-update-field="1" data-field-to-update="1"></input>
                             </div>
                             <div class="form-group">
-                                <label for="panel-6-input-2">Tipo de identificación</label>
-                                <select class="form-control input-sm" id="panel-6-input-2" data-update-field="1" data-field-to-update="2"></select>
+                                <label for="panel-6-input-2">Página web del almacén</label>
+                                <input type="text" class="form-control input-sm" id="panel-6-input-2" data-update-field="1" data-field-to-update="2"></input>
                             </div>
                             <div class="form-group">
-                                <label for="panel-6-input-3">Número de identificación</label>
+                                <label for="panel-6-input-3">Logo almacén</label>
                                 <input type="text" class="form-control input-sm" id="panel-6-input-3" data-update-field="1" data-field-to-update="3"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="panel-6-input-4">Nombre de proveedor</label>
-                                <input type="text" class="form-control input-sm" id="panel-6-input-4" data-update-field="1" data-field-to-update="4"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="panel-6-input-5">Teléfono de proveedor</label>
-                                <input type="text" class="form-control input-sm" id="panel-6-input-5" data-update-field="1" data-field-to-update="5"/>
-                            </div>
+                            </div>                            
                         </div>
                         <hr/>
                         <div class="row no-margin no-padding">
                             <div class="col-xs-12 no-margin no-padding">
                                 <div class="form-group">
-                                    <label for="panel-6-input-6">&nbsp;</label>
-                                    <button class="btn btn-success btn-sm pull-right" id="panel-6-input-6">Guardar</button>
+                                    <label for="panel-6-input-4">&nbsp;</label>
+                                    <button class="btn btn-success btn-sm pull-right" id="panel-6-input-4">Guardar</button>
                                 </div>
                             </div>
                         </div>
@@ -1080,90 +858,6 @@
                                 <div class="form-group">
                                     <label for="panel-8-input-5">&nbsp;</label>
                                     <button class="btn btn-success btn-sm pull-right" id="panel-8-input-5">Guardar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-11 panel-floating panel-center no-padding" id="panel-9-container" data-item="window" style="display: none;">
-            <div class="panel panel-primary panel-shadow lobipanel no-margin no-padding" id="panel-9" data-idholder="NULL">
-                <div class="panel-heading" data-item="panel-heading">
-                    <div class="panel-title">
-                        <span>Registro kardex</span>
-                        <button onclick="functionHandler({functionName: 'windowHandler', getNodeMethod: 'id', nodeItem: 'panel-9-container', action: 'close'});" type="button" class="close" title="Cerrar">
-                            <span aria-hidden="true">&times;</span>
-                            <span class="sr-only">Cerrar</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="panel-body" data-item="panel-body" style="overflow: auto;">
-                    <div class="panel-body-container" data-item="panel-body-container">
-                        <div class="row no-margin no-padding">
-                            <div class="col-xs-3 border-right" id="form-9">
-                                <div class="form-group">
-                                    <label for="panel-9-input-1">Fecha</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control input-sm pointer disabled" id="panel-9-input-1" readonly/>
-                                        <span class="input-group-addon">
-                                            <input type="checkbox" id="panel-9-input-7" title="Obtener fecha automático" checked="checked">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="row no-margin no-padding">
-                                    <div class="col-xs-6 no-margin no-padding">
-                                        <div class="form-group" style="margin-right: 5px">
-                                            <label for="panel-9-input-2">Entradas</label>
-                                            <input type="number" class="form-control input-sm" id="panel-9-input-2" value="0" min="0"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 no-margin no-padding">
-                                        <div class="form-group" style="margin-left: 5px">
-                                            <label for="panel-9-input-3">Salidas</label>
-                                            <input type="number" class="form-control input-sm" id="panel-9-input-3" value="0" max="0" min="0"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group no-margin-bottom">
-                                    <label for="panel-9-input-4">Razón de movimiento</label>
-                                    <textarea class="form-control input-sm" id="panel-9-input-4"></textarea>
-                                </div>
-                                <hr/>
-                                <div class="form-group">
-                                    <label for="panel-9-input-5">Saldo</label>
-                                    <input type="number" class="form-control input-sm disabled" id="panel-9-input-5" disabled="disabled"/>
-                                </div>
-                                <div data-item="item-to-resize-1"></div>
-                                <hr/>
-                                <div class="form-group">
-                                    <label for="panel-9-input-6">&nbsp;</label>
-                                    <button class="btn btn-success btn-sm pull-right" id="panel-9-input-6">Agregar</button>
-                                </div>
-                            </div>
-                            <div class="col-xs-9">
-                                <table class="table table-bordered table-condensed table-striped" id="panel-9-table-1">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="6">
-                                                <input type="text" class="form-control input-sm full-width-percent" data-search-input="data-table" placeholder="Buscar..."/>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th class="center-text pointer">IT</th>
-                                            <th class="center-text pointer">Fecha</th>
-                                            <th class="center-text pointer">Entrada</th>
-                                            <th class="center-text pointer">Salida</th>
-                                            <th class="center-text pointer">Razón</th>
-                                            <th class="center-text pointer">Saldo</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                                <hr/>
-                                <div class="form-group">
-                                    <label for="panel-9-input-6">&nbsp;</label>
-                                    <button class="btn btn-danger btn-sm pull-right" onclick="functionHandler({functionName: 'windowHandler', getNodeMethod: 'id', nodeItem: 'panel-9-container', action: 'close'});">Cerrar</button>
                                 </div>
                             </div>
                         </div>

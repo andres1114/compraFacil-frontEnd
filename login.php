@@ -39,7 +39,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <img class="center-image" src="css/images/logo-invert.png" alt="Compra fácil logo" />
+                                    <img class="center-image" src="css/images/logo-invert-2021.png" alt="Compra fácil logo" />
                                 </div>
                             </div>
                             <div class="row">

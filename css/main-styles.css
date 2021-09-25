@@ -125,10 +125,10 @@
     color: white;
 }
 .background-image-1 {
-    background-image: url('images/background-1.jpg');
+    background-image: url('images/index-login-2021.jpeg');
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-position: center;
+    background-size: cover;
 }
 .icon-menu-container {
     margin-top: 15px;
@@ -141,7 +141,7 @@
     height: 115px;
     width: 80%;
     border-radius: 14px;
-    background-color: #ffffff;
+    background-color: #D65004;
     background-repeat: repeat-x;
     margin-left: auto;
     margin-right: auto;
@@ -164,21 +164,21 @@
     padding-top: 5px;
     text-align: center;
     vertical-align: middle;
-    color: #D65004;
+    color: #ffffff;
     font-size: 26pt;
 }
 .icon-menu-item > .icon-menu-item-text {
     width: 90%;
     text-align: center;
     vertical-align: middle;
-    color: #D65004;
+    color: #ffffff;
     font-size: 11pt;
     margin-left: auto;
     margin-right: auto;
 }
 .icon-menu-item > hr {
     width: 70%;
-    border-top-color: #D65004;
+    border-top-color: #ffffff;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: auto;

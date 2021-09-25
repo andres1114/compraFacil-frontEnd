@@ -9,41 +9,6 @@ var excelName = {};
 function main() {
     $("body").show("fade",400);
 
-    $("#panel-9-input-1, #panel-10-input-1").datetimepicker({
-        dateFormat: 'yy-mm-dd'
-        ,showButtonPanel: true
-        ,showOtherMonths: true
-        ,selectOtherMonths: true
-        ,minDate: -7
-        ,maxDate: 1
-        ,controlType: 'select'
-        ,oneLine: true
-        ,timeFormat: 'HH:mm:ss'
-    }).datetimepicker("setDate",new Date());
-    $("#table-9-date-field-1, #table-9-date-field-2").datepicker({
-        dateFormat: 'yy-mm-dd'
-        ,showButtonPanel: true
-        ,showOtherMonths: true
-        ,selectOtherMonths: true
-    }).datepicker("setDate",new Date());
-    functionHandler({
-        functionName: "dateDaysControl"
-        ,getNodeMethod: "id"
-        ,nodeItem: "table-9-date-field-1"
-        ,inputType: "date"
-        ,action: "remove"
-        ,days: 90
-    });
-
-    timer_2 = setInterval(function(){
-        if ($("#panel-9-input-7").prop("checked")) {
-            $("#panel-9-input-1").datetimepicker("setDate",new Date());
-        }
-        if ($("#panel-10-input-7").prop("checked")) {
-            $("#panel-10-input-1").datetimepicker("setDate",new Date());
-        }
-    },1000);
-
     $("#panel-1-input-10").bind("click", function() {
         dataChangeHandler({
             changeName: "personRegistry"
@@ -585,58 +550,58 @@ function main() {
         }
         ,triggerOnChange: true
     });
-    functionHandler({
-        functionName: "selectFiller"
-        ,callHeader: "showCities"
-        ,getNodeMethod: "id"
-        ,nodeItem: "panel-5-input-1"
-        ,deleteNodeContent: true
-        ,addDividerToNode: false
-        ,addNodeBeforeLoad: false
-        ,triggerChosen: true
-        ,chosenOptions: {
-            widthUnit: "%"
-            ,widthValue: 100
-        }
-        ,triggerOnChange: false
-    });
-    functionHandler({
-        functionName: "selectFiller"
-        ,callHeader: "showCities"
-        ,getNodeMethod: "id"
-        ,nodeItem: "panel-6-input-1"
-        ,deleteNodeContent: true
-        ,addDividerToNode: false
-        ,addNodeBeforeLoad: false
-        ,triggerChosen: true
-        ,chosenOptions: {
-            widthUnit: "%"
-            ,widthValue: 100
-        }
-        ,triggerOnChange: false
-    });
-    functionHandler({
-        functionName: "selectFiller"
-        ,callHeader: "showPersonIdType"
-        ,getNodeMethod: "id"
-        ,nodeItem: "panel-5-input-2"
-        ,deleteNodeContent: true
-        ,addDividerToNode: false
-        ,addNodeBeforeLoad: false
-        ,triggerChosen: false
-        ,triggerOnChange: false
-    });
-    functionHandler({
-        functionName: "selectFiller"
-        ,callHeader: "showPersonIdType"
-        ,getNodeMethod: "id"
-        ,nodeItem: "panel-6-input-2"
-        ,deleteNodeContent: true
-        ,addDividerToNode: false
-        ,addNodeBeforeLoad: false
-        ,triggerChosen: false
-        ,triggerOnChange: false
-    });
+    // functionHandler({
+    //     functionName: "selectFiller"
+    //     ,callHeader: "showCities"
+    //     ,getNodeMethod: "id"
+    //     ,nodeItem: "panel-5-input-1"
+    //     ,deleteNodeContent: true
+    //     ,addDividerToNode: false
+    //     ,addNodeBeforeLoad: false
+    //     ,triggerChosen: true
+    //     ,chosenOptions: {
+    //         widthUnit: "%"
+    //         ,widthValue: 100
+    //     }
+    //     ,triggerOnChange: false
+    // });
+    // functionHandler({
+    //     functionName: "selectFiller"
+    //     ,callHeader: "showCities"
+    //     ,getNodeMethod: "id"
+    //     ,nodeItem: "panel-6-input-1"
+    //     ,deleteNodeContent: true
+    //     ,addDividerToNode: false
+    //     ,addNodeBeforeLoad: false
+    //     ,triggerChosen: true
+    //     ,chosenOptions: {
+    //         widthUnit: "%"
+    //         ,widthValue: 100
+    //     }
+    //     ,triggerOnChange: false
+    // });
+    // functionHandler({
+    //     functionName: "selectFiller"
+    //     ,callHeader: "showPersonIdType"
+    //     ,getNodeMethod: "id"
+    //     ,nodeItem: "panel-5-input-2"
+    //     ,deleteNodeContent: true
+    //     ,addDividerToNode: false
+    //     ,addNodeBeforeLoad: false
+    //     ,triggerChosen: false
+    //     ,triggerOnChange: false
+    // });
+    // functionHandler({
+    //     functionName: "selectFiller"
+    //     ,callHeader: "showPersonIdType"
+    //     ,getNodeMethod: "id"
+    //     ,nodeItem: "panel-6-input-2"
+    //     ,deleteNodeContent: true
+    //     ,addDividerToNode: false
+    //     ,addNodeBeforeLoad: false
+    //     ,triggerChosen: false
+    //     ,triggerOnChange: false
+    // });
     functionHandler({
         functionName: "selectFiller"
         ,callHeader: "showProviders"
@@ -1392,7 +1357,6 @@ function responseHandler(args) {
             var responseItem_1 = args.jsonResponse.values.id;
             var responseItem_2 = args.jsonResponse.values.personId;
             var responseItem_3 = args.jsonResponse.values.personFullName;
-            var responseItem_4 = args.jsonResponse.values.personCellphone;
             var responseItem_5 = args.jsonResponse.values.active;
 
             if (responseItem_1 !== null && responseItem_1 !== "" && responseItem_1.length !== 0) {
@@ -1407,7 +1371,7 @@ function responseHandler(args) {
                     trArray[x] = document.createElement("tr");
                     var tdArray = new Array();
 
-                    for (var y = 0; y < 7; y++) {
+                    for (var y = 0; y < 6; y++) {
                         tdArray[y] = document.createElement("td");
 
                         switch(y) {
@@ -1431,10 +1395,6 @@ function responseHandler(args) {
 
                                 break;
                             case 4:
-                                $(tdArray[y]).addClass("tbl-text-align-left").html(responseItem_4[x]);
-
-                                break;
-                            case 5:
 
                                 $(tdArray[y]).addClass("tbl-text-align-center").append(
                                     "<div class='btn-group dropdown full-width-percent'>"
@@ -1486,7 +1446,7 @@ function responseHandler(args) {
                                 });
 
                                 break;
-                            case 6:
+                            case 5:
                                 var button = document.createElement("button");
 
                                 if (parseInt(responseItem_5[x],10) == 1) {
@@ -1592,9 +1552,6 @@ function responseHandler(args) {
             var responseItem_3 = args.jsonResponse.values.userId;
             var responseItem_4 = args.jsonResponse.values.personFirstName;
             var responseItem_5 = args.jsonResponse.values.personLastName;
-            var responseItem_6 = args.jsonResponse.values.personPhone;
-            var responseItem_7 = args.jsonResponse.values.personCellphone;
-            var responseItem_8 = args.jsonResponse.values.personAddress;
             var responseItem_9 = args.jsonResponse.values.personUserName;
             var responseItem_10 = args.jsonResponse.values.personUserPassword;
             var responseItem_11 = args.jsonResponse.values.personRegistrationDate;
@@ -1606,9 +1563,6 @@ function responseHandler(args) {
             $("#panel-2-input-1").val(responseItem_2);
             $("#panel-2-input-2").val(responseItem_4);
             $("#panel-2-input-3").val(responseItem_5);
-            $("#panel-2-input-4").val(responseItem_6);
-            $("#panel-2-input-5").val(responseItem_7);
-            $("#panel-2-input-6").val(responseItem_8);
 
             if (parseInt(responseItem_14,10) == 1) {
                 var encryption = new Encryption();
@@ -3588,9 +3542,6 @@ function dataChangeHandler(args) {
                 jsonData.changeArguments.personId = $("#panel-1-input-1").val();
                 jsonData.changeArguments.personFirstName = $("#panel-1-input-2").val();
                 jsonData.changeArguments.personLastName = $("#panel-1-input-3").val();
-                jsonData.changeArguments.personPhoneNumber = $("#panel-1-input-4").val();
-                jsonData.changeArguments.personCellphoneNumber = $("#panel-1-input-5").val();
-                jsonData.changeArguments.personAddress = $("#panel-1-input-6").val();
 
                 if ($("#panel-1-input-7").val() === "" || $("#panel-1-input-8").val() === "") {
                     jsonData.changeArguments.addUser = 0;

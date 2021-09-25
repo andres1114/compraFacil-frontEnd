@@ -13,7 +13,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Ferreteria CRM - Login</title>
+		<title>CompraFacil - Login</title>
 		<link rel="shortcut icon" href="css/images/favicon.png">
 		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
 		<link href="css/bootstrap-theme.css" rel="stylesheet" media="screen">
@@ -39,7 +39,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <img class="center-image" src="css/images/company_logo.png" alt="Blue CV Logo" />
+                                    <img class="center-image" src="css/images/logo-invert-2021.png" alt="Compra fácil logo" />
                                 </div>
                             </div>
                             <div class="row">

@@ -236,7 +236,6 @@
                                     <th class="center-text pointer">IT</th>
                                     <th class="center-text pointer">Identificación</th>
                                     <th class="center-text pointer">Nombre completo</th>
-                                    <th class="center-text pointer">Télefono Celular</th>
                                     <th class="center-text pointer">Acción</th>
                                     <th class="center-text pointer">Estado</th>
                                 </tr>
@@ -443,24 +442,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row no-margin no-padding">
-                                <div class="col-xs-6 no-margin no-padding">
-                                    <div class="form-group" style="margin-right: 5px">
-                                        <label for="panel-1-input-4">Teléfono fijo</label>
-                                        <input type="number" class="form-control input-sm" id="panel-1-input-4" data-item="can-be-empty"/>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 no-margin no-padding">
-                                    <div class="form-group" style="margin-left: 5px">
-                                        <label for="panel-1-input-5">Teléfono celular</label>
-                                        <input type="number" class="form-control input-sm" id="panel-1-input-5" data-item="can-be-empty"/>
-                                    </div>
-                                </div>
-                            </div>
-							<div class="form-group">
-                                <label for="panel-1-input-6">Dirección de residencia</label>
-                                <input type="text" class="form-control input-sm" id="panel-1-input-6" data-item="can-be-empty"/>
-                            </div>
                         </div>
                         <hr/>
                         <div class="row no-margin no-padding">
@@ -535,24 +516,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row no-margin no-padding">
-                                <div class="col-xs-6 no-margin no-padding">
-                                    <div class="form-group" style="margin-right: 5px">
-                                        <label for="panel-2-input-4">Teléfono fijo</label>
-                                        <input type="text" class="form-control input-sm" id="panel-2-input-4" data-update-field="1" data-field-to-update="4"/>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 no-margin no-padding">
-                                    <div class="form-group" style="margin-left: 5px">
-                                        <label for="panel-2-input-5">Teléfono celular</label>
-                                        <input type="text" class="form-control input-sm" id="panel-2-input-5" data-update-field="1" data-field-to-update="5"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="panel-2-input-6">Dirección de residencia</label>
-                                <input type="text" class="form-control input-sm" id="panel-2-input-6" data-update-field="1" data-field-to-update="6"/>
-                            </div>
                         </div>
                         <hr/>
                         <div class="row no-margin no-padding">
@@ -606,6 +569,10 @@
                 <div class="panel-body" data-item="panel-body" style="overflow: auto;">
                     <div class="panel-body-container" data-item="panel-body-container" id="form-3">
                         <div class="row no-margin no-padding">
+                            <div class="form-group">
+                                <label for="panel-3-input-0">Empleado a asignar<span class="required-field" title="Requerido">*</span></label>
+                                <select class="form-control input-sm full-width-percent" id="panel-3-input-0"></select>
+                            </div>
                             <div class="form-group">
                                 <label for="panel-3-input-1">Tipo de usuario<span class="required-field" title="Requerido">*</span></label>
                                 <select class="form-control input-sm" id="panel-3-input-1"></select>

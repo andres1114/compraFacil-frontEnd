@@ -40,15 +40,15 @@
             <input type="text" id="nonce-value" value="<?php echo NONCE_VALUE ?>"/>
         </div>
         <div class="row no-margin no-padding">
-            <div class="col-xs-2 no-margin full-height-vh navbar-inverse cube-box" id="left-panel">
+            <div class="col-xs-2 no-margin full-height-vh style-navbar cube-box" id="left-panel">
                 <div id="user-info-section" style="margin-top: 20px;">
-                    <div class="text-bold text-white" style="font-size: 16pt;">Bienvenido</div>
-                    <div class="text-white" style="font-size: 11pt; margin-top: 5px;">
+                    <div class="text-bold text-orange" style="font-size: 16pt;">Bienvenido</div>
+                    <div class="text-orange" style="font-size: 11pt; margin-top: 5px;">
                         <span class="fas fa-user" style="margin-right: 5px;"></span>
                         <span><?php echo $toShowuserName ?></span>
                     </div>
                 </div>
-                <hr/>
+                <hr class="border-color-top"/>
                 <div id="action-info-section">
                     <div id="options-container-1" data-item="option-panel" style="display: none;">
                         <div class="options-title">Acciones</div>

@@ -18,7 +18,7 @@
          <meta charset="utf-8">
          <meta http-equiv="X-UA-Compatible" content="IE=edge">
          <meta name="viewport" content="width=device-width, initial-scale=1">
-         <title>Ferreteria CRM - Administración</title>
+         <title>Compra Fácil - Administración</title>
          <link rel="shortcut icon" href="css/images/favicon.png">
          <link href="css/bootstrap.css" rel="stylesheet" media="screen">
          <link href="css/bootstrap-theme.css" rel="stylesheet" media="screen">
@@ -727,8 +727,13 @@
                                 <input type="text" class="form-control input-sm" id="panel-6-input-2" data-update-field="1" data-field-to-update="2"></input>
                             </div>
                             <div class="form-group">
-                                <label for="panel-6-input-3">Logo almacén</label>
-                                <input type="text" class="form-control input-sm" id="panel-6-input-3" data-update-field="1" data-field-to-update="3"/>
+                                <label for="panel-6-input-3">Logo vigente de almacén</label>
+                                <div class="well tbl-text-align-center">
+                                    <img id="panel-6-img-1" class="image-logo-2" src="" alt="Grocery Logo" style="display:none;"/>
+                                    <h3 id="panel-6-no-image-1" style="display:none;">Sin imagen</h3>
+                                </div>
+                                <label for="panel-6-input-3">Nuevo logo</label>
+                                <input type="file" class="form-control input-sm" id="panel-6-input-3" data-update-field="1" data-field-to-update="3"/>
                             </div>                            
                         </div>
                         <hr/>

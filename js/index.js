@@ -27,9 +27,9 @@ function main() {
             }
         });
     });
-    $("#panel-5-input-6").bind("click", function() {
+    $("#panel-5-input-4").bind("click", function() {
         dataChangeHandler({
-            changeName: "providerRegistry"
+            changeName: "groceryRegistry"
             ,changeOptions: {
                 getNodeMethod: "id"
                 ,nodeItem: "form-5"
@@ -73,9 +73,9 @@ function main() {
             ,nodeItem: "form-4"
         });
     });
-    $("#panel-6-input-6").bind("click",function(){
+    $("#panel-6-input-4").bind("click",function(){
         dataChangeHandler({
-            changeName: "providerUpdate"
+            changeName: "groceryUpdate"
             ,getNodeMethod: "id"
             ,nodeItem: "form-6"
         });
@@ -488,7 +488,7 @@ function main() {
         ,deleteNodeContent: true
     });
     callHandler({
-        callName: "showProviders"
+        callName: "showGroceries"
         ,callArguments: null
         ,getNodeMethod: "id"
         ,callbackNode: "table-3"
@@ -604,7 +604,7 @@ function main() {
     // });
     functionHandler({
         functionName: "selectFiller"
-        ,callHeader: "showProviders"
+        ,callHeader: "showGroceries"
         ,getNodeMethod: "id"
         ,nodeItem: "panel-7-input-1"
         ,deleteNodeContent: true
@@ -623,22 +623,6 @@ function main() {
         ,callHeader: "showProductTypes"
         ,getNodeMethod: "id"
         ,nodeItem: "panel-7-input-2"
-        ,deleteNodeContent: true
-        ,addDividerToNode: false
-        ,addNodeBeforeLoad: false
-        ,triggerChosen: true
-        ,chosenOptions: {
-            widthUnit: "%"
-            ,widthValue: 100
-        }
-        ,triggerOnChange: false
-        ,selectedOption: 2
-    });
-    functionHandler({
-        functionName: "selectFiller"
-        ,callHeader: "showProviders"
-        ,getNodeMethod: "id"
-        ,nodeItem: "panel-8-input-1"
         ,deleteNodeContent: true
         ,addDividerToNode: false
         ,addNodeBeforeLoad: false
@@ -1162,8 +1146,8 @@ function callHandler(args){
         case "showPersonData":
         case "showUsers":
         case "showUserData":
-        case "showProviderData":
-        case "showProviders":
+        case "showGroceryData":
+        case "showGroceries":
         case "showProducts":
         case "showProductData":
         case "showProductsForKardex":
@@ -1956,19 +1940,42 @@ function responseHandler(args) {
             });
 
             break;
-        case "providerRegistry":
+        case "groceryRegistry":
             switch (parseInt(args.jsonResponse.values.dataChangeCode,10)) {
                 case 0:
-                    statusBox('warning','NULL','El proveedor ya existe','add','NULL');
+                    statusBox('warning','NULL','El almacén ya existe','add','NULL');
                     break;
                 case 1:
+                case 2:
+                case 3:
+                case 4:
+                    $("#panel-5-input-1").val("");
+                    $("#panel-5-input-2").val("");
                     $("#panel-5-input-3").val("");
-                    $("#panel-5-input-4").val("");
-                    $("#panel-5-input-5").val("");
 
-                    statusBox('success','NULL','Hecho','add','NULL');
+                    switch (parseInt(args.jsonResponse.values.dataChangeCode,10)) {
+                        case 1:
+                            statusBox('success','NULL','Hecho','add','NULL');
+                            break;
+                        case 2:
+                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurriod un error en la carga de la imagen','add','NULL');
+                            break;
+                        case 3:
+                            statusBox('warning','NULL','Hecho con errores:<br/>El tamaño del archivo ha excedido 15MB','add','NULL');
+                            break;
+                        case 4:
+                            statusBox('warning','NULL','Hecho con errores:<br/>El nombre del archivo contiene más de un punto (.)','add','NULL');
+                            break;
+                        case 5:
+                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurriod un error en el guardado de la imagen en /php/imagenes','add','NULL');
+                            break;
+                        default:
+                            statusBox('success','NULL','Hecho','add','NULL');
+                            break;
+                    }
+
                     callHandler({
-                        callName: "showProviders"
+                        callName: "showGroceries"
                         ,callArguments: null
                         ,getNodeMethod: "id"
                         ,callbackNode: "table-3"
@@ -1976,7 +1983,7 @@ function responseHandler(args) {
                     });
                     functionHandler({
                         functionName: "selectFiller"
-                        ,callHeader: "showProviders"
+                        ,callHeader: "showGroceries"
                         ,getNodeMethod: "id"
                         ,nodeItem: "panel-7-input-1"
                         ,deleteNodeContent: true
@@ -1990,26 +1997,7 @@ function responseHandler(args) {
                         ,triggerOnChange: false
                         ,selectedOption: 2
                     });
-                    functionHandler({
-                        functionName: "selectFiller"
-                        ,callHeader: "showProviders"
-                        ,getNodeMethod: "id"
-                        ,nodeItem: "panel-8-input-1"
-                        ,deleteNodeContent: true
-                        ,addDividerToNode: false
-                        ,addNodeBeforeLoad: false
-                        ,triggerChosen: true
-                        ,chosenOptions: {
-                            widthUnit: "%"
-                            ,widthValue: 100
-                        }
-                        ,triggerOnChange: false
-                        ,selectedOption: 2
-                    });
 
-                    break;
-                case 2:
-                    statusBox('warning','NULL','Ya existe un empleado con tipo de identificación y número de identificación que se intenta registrar, por favor verifique e intente nuevamente','add','8000');
                     break;
             }
             if (typeof(args.passedArguments.onCallDone) !== "undefined") {
@@ -2017,7 +2005,7 @@ function responseHandler(args) {
             }
 
             break;
-        case "showProviders":
+        case "showGroceries":
             switch (args.passedArguments.getNodeMethod) {
                 case "id":
                     var htmlNode = $("#"+args.passedArguments.callbackNode).get(0);
@@ -2041,11 +2029,10 @@ function responseHandler(args) {
             }
 
             var responseItem_1 = args.jsonResponse.values.id;
-            var responseItem_2 = args.jsonResponse.values.providerId;
-            var responseItem_3 = args.jsonResponse.values.providerName;
-            var responseItem_4 = args.jsonResponse.values.providerPhone;
-            var responseItem_5 = args.jsonResponse.values.providerCity;
-            var responseItem_6 = args.jsonResponse.values.active;
+            var responseItem_2 = args.jsonResponse.values.name;
+            var responseItem_3 = args.jsonResponse.values.groceryWebsite;
+            var responseItem_4 = args.jsonResponse.values.groceryImage;
+            var responseItem_5 = args.jsonResponse.values.active;
 
             if (responseItem_1 !== null && responseItem_1 !== "" && responseItem_1.length !== 0) {
                 if (args.passedArguments.addDividerToNode) {
@@ -2059,7 +2046,7 @@ function responseHandler(args) {
                     trArray[x] = document.createElement("tr");
                     var tdArray = new Array();
 
-                    for (var y = 0; y < 8; y++) {
+                    for (var y = 0; y < 7; y++) {
                         tdArray[y] = document.createElement("td");
 
                         switch(y) {
@@ -2075,7 +2062,7 @@ function responseHandler(args) {
 
                                 break;
                             case 2:
-                                $(tdArray[y]).addClass("tbl-text-align-center").html(responseItem_2[x]);
+                                $(tdArray[y]).addClass("tbl-text-align-left").html(responseItem_2[x]);
 
                                 break;
                             case 3:
@@ -2083,22 +2070,29 @@ function responseHandler(args) {
 
                                 break;
                             case 4:
-                                $(tdArray[y]).addClass("tbl-text-align-left").html(responseItem_4[x]);
+                                if (responseItem_4[x] !== null) {
+                                    var tempImageNode = document.createElement("img");
+                                    $(tempImageNode).attr({
+                                        "src": "php/imagenes/" + responseItem_4[x],
+                                        "alt": "Grocery Image",
+                                        "class": "image-logo-1"
+                                    });
+                                    $(tdArray[y]).addClass("tbl-text-align-center").append(tempImageNode);
+                                } else {
+                                    $(tdArray[y]).addClass("tbl-text-align-center").html("sin imagen");
+                                }
+
 
                                 break;
                             case 5:
-                                $(tdArray[y]).addClass("tbl-text-align-left").html(responseItem_5[x]);
-
-                                break;
-                            case 6:
 
                                 $(tdArray[y]).addClass("tbl-text-align-center").append(
                                     "<div class='btn-group dropdown full-width-percent'>"
                                     +"<button class='btn btn-default btn-sm btn-block dropdown-toggle' data-toggle='dropdown'>Acción&nbsp;<span class='caret'></span></button>"
                                     +"<ul class='dropdown-menu dropdown-menu-right'>"
-                                    +"<li data-item='option-1'><a href='#'>Editar proveedor</a></li>"
+                                    +"<li data-item='option-1'><a href='#'>Editar almacén</a></li>"
                                     +"<li role='separator' class='divider'></li>"
-                                    +"<li data-item='option-3'><a href='#'>Eliminar proveedor</a></li>"
+                                    +"<li data-item='option-3'><a href='#'>Eliminar almacén</a></li>"
                                     +"</ul>"
                                     +"</div>"
                                 );
@@ -2107,7 +2101,7 @@ function responseHandler(args) {
                                     $("#panel-6").attr("data-idholder", $(this).parents("tr").attr("data-id"));
 
                                     callHandler({
-                                        callName: "showProviderData"
+                                        callName: "showGroceryData"
                                         ,callArguments: {
                                             providerId: $("#panel-6").attr("data-idholder")
                                         }
@@ -2123,29 +2117,29 @@ function responseHandler(args) {
                                 });
                                 $(tdArray[y]).find("li[data-item='option-3']").bind("click",function(){
 
-                                    var confirmText = "¿Está seguro en eliminar el proveedor? Todos sus datos serán eliminados de manera permanente, ¿está seguro en continuar?";
+                                    var confirmText = "¿Está seguro en eliminar el almacén? Todos sus datos serán eliminados de manera permanente, ¿está seguro en continuar?";
 
                                     var _confirm = confirm(confirmText);
 
                                     if (_confirm) {
                                         dataChangeHandler({
-                                            changeName: "providerUpdate"
+                                            changeName: "groceryUpdate"
                                             ,getNodeMethod: "NULL"
                                             ,nodeItem: "NULL"
                                             ,valuesToEdit: {
-                                                providerId: $(this).parents("tr").attr("data-id")
+                                                groceryId: $(this).parents("tr").attr("data-id")
                                                 ,valueToUpdate: "NULL"
-                                                ,fieldToUpdate: 7
+                                                ,fieldToUpdate: 5
                                             }
                                         });
                                     }
                                 });
 
                                 break;
-                            case 7:
+                            case 6:
                                 var button = document.createElement("button");
 
-                                if (parseInt(responseItem_6[x],10) == 1) {
+                                if (parseInt(responseItem_5[x],10) == 1) {
                                     $(button).attr("class","btn btn-success btn-sm btn-block cube-box");
                                     $(button).attr("title","Desactivar");
                                     $(button).attr("data-status","active");
@@ -2173,19 +2167,20 @@ function responseHandler(args) {
 
                                     if (_confirm) {
                                         dataChangeHandler({
-                                            changeName: "providerUpdate"
+                                            changeName: "groceryUpdate"
                                             ,getNodeMethod: "NULL"
                                             ,nodeItem: "NULL"
                                             ,valuesToEdit: {
-                                                providerId: $(this).parents("tr").attr("data-id")
+                                                groceryId: $(this).parents("tr").attr("data-id")
                                                 ,valueToUpdate: valueToUpdate
-                                                ,fieldToUpdate: 6
+                                                ,fieldToUpdate: 4
                                             }
                                         });
                                     }
                                 });
 
                                 $(tdArray[y]).addClass("tbl-text-align-center").append(button);
+
                                 break;
                         }
 
@@ -2240,42 +2235,83 @@ function responseHandler(args) {
             }
 
             break;
-        case "showProviderData":
+        case "showGroceryData":
 
             var responseItem_1 = args.jsonResponse.values.providerId;
-            var responseItem_2 = args.jsonResponse.values.providerName;
-            var responseItem_3 = args.jsonResponse.values.providerPhone;
-            var responseItem_4 = args.jsonResponse.values.providerCityId;
-            var responseItem_5 = args.jsonResponse.values.providerIdType;
+            var responseItem_2 = args.jsonResponse.values.groceryName;
+            var responseItem_3 = args.jsonResponse.values.groceryWebsite;
+            var responseItem_4 = args.jsonResponse.values.groceryImage;
 
-            $("#panel-6-input-1").find("option").removeAttr("selected", "selected");
-            $("#panel-6-input-1").find("option[value='" + responseItem_4 + "']").attr("selected", "selected");
-            $("#panel-6-input-1").trigger("chosen:updated");
-            $("#panel-6-input-2").find("option").removeAttr("selected", "selected");
-            $("#panel-6-input-2").find("option[value='" + responseItem_5 + "']").attr("selected", "selected");
-            $("#panel-6-input-2").trigger("chosen:updated");
+            $("#panel-6-input-1").val(responseItem_2);
+            $("#panel-6-input-2").val(responseItem_3);
+            $("#panel-6-input-3").val("");
 
-            $("#panel-6-input-3").val(responseItem_1);
-            $("#panel-6-input-4").val(responseItem_2);
-            $("#panel-6-input-5").val(responseItem_3);
+            if (responseItem_4 !== null) {
+                $("#panel-6-img-1").attr("src", "php/imagenes/" + responseItem_4).show();
+                $("#panel-6-no-image-1").hide();
+            } else {
+                $("#panel-6-img-1").hide();
+                $("#panel-6-no-image-1").show();
+            }
 
             if (typeof(args.passedArguments.onCallDone) !== "undefined") {
                 args.passedArguments.onCallDone();
             }
             break;
-        case "providerUpdate":
-
-            statusBox('success','NULL','Hecho','add','NULL');
-            $("#panel-6").attr("data-idholder", "NULL");
-
-            functionHandler({
-                functionName: 'windowHandler'
-                , getNodeMethod: 'id'
-                , nodeItem: 'panel-6-container'
-                , action: 'close'
-            });
+        case "groceryUpdate":
+            switch (parseInt(args.jsonResponse.values.dataChangeCode,10)) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    switch (parseInt(args.jsonResponse.values.dataChangeCode,10)) {
+                        case 1:
+                            statusBox('success','NULL','Hecho','add','NULL');
+                            $("#panel-6").attr("data-idholder", "NULL");
+                            functionHandler({
+                                functionName: 'windowHandler'
+                                , getNodeMethod: 'id'
+                                , nodeItem: 'panel-6-container'
+                                , action: 'close'
+                            });
+                            break;
+                        case 2:
+                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurriod un error en la carga de la imagen','add','NULL');
+                            $("#panel-6-input-3").val("");
+                            break;
+                        case 3:
+                            statusBox('warning','NULL','Hecho con errores:<br/>El tamaño del archivo ha excedido 15MB','add','NULL');
+                            $("#panel-6-input-3").val("");
+                            break;
+                        case 4:
+                            statusBox('warning','NULL','Hecho con errores:<br/>El nombre del archivo contiene más de un punto (.)','add','NULL');
+                            $("#panel-6-input-3").val("");
+                            break;
+                        case 5:
+                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurriod un error en el guardado de la imagen en /php/imagenes','add','6000');
+                            $("#panel-6-input-3").val("");
+                            break;
+                        case 6:
+                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurriod un error en el borrado de la imagen anterior en /php/imagenes','add','6000');
+                            $("#panel-6-input-3").val("");
+                            break;
+                        default:
+                            statusBox('success','NULL','Hecho','add','NULL');
+                            $("#panel-6").attr("data-idholder", "NULL");
+                            functionHandler({
+                                functionName: 'windowHandler'
+                                , getNodeMethod: 'id'
+                                , nodeItem: 'panel-6-container'
+                                , action: 'close'
+                            });
+                            break;
+                    }
+                    break;
+            }
             callHandler({
-                callName: "showProviders"
+                callName: "showGroceries"
                 ,callArguments: null
                 ,getNodeMethod: "id"
                 ,callbackNode: "table-3"
@@ -2283,25 +2319,9 @@ function responseHandler(args) {
             });
             functionHandler({
                 functionName: "selectFiller"
-                ,callHeader: "showProviders"
+                ,callHeader: "showGroceries"
                 ,getNodeMethod: "id"
                 ,nodeItem: "panel-7-input-1"
-                ,deleteNodeContent: true
-                ,addDividerToNode: false
-                ,addNodeBeforeLoad: false
-                ,triggerChosen: true
-                ,chosenOptions: {
-                    widthUnit: "%"
-                    ,widthValue: 100
-                }
-                ,triggerOnChange: false
-                ,selectedOption: 2
-            });
-            functionHandler({
-                functionName: "selectFiller"
-                ,callHeader: "showProviders"
-                ,getNodeMethod: "id"
-                ,nodeItem: "panel-8-input-1"
                 ,deleteNodeContent: true
                 ,addDividerToNode: false
                 ,addNodeBeforeLoad: false
@@ -3820,7 +3840,9 @@ function dataChangeHandler(args) {
             }
 
             break;
-        case "providerRegistry":
+        case "groceryRegistry":
+            var maxFileSize = 1.5e+7;
+            var file = "null";
 
             var checkFormInputs = functionHandler({
                 functionName: "checkForEmptyFormFields"
@@ -3829,28 +3851,57 @@ function dataChangeHandler(args) {
             });
 
             if (checkFormInputs === false) {
-
-                $("#panel-5-input-6").addClass("disabled").attr("disabled", "disabled");
+                $("#panel-5-input-4").addClass("disabled").attr("disabled", "disabled");
 
                 var jsonData = new Object();
 
                 jsonData.changeHeader = args.changeName;
                 jsonData.changeArguments = new Object();
-                jsonData.changeArguments.providerCityId = $("#panel-5-input-1").val();
-                jsonData.changeArguments.providerIdType = $("#panel-5-input-2").val();
-                jsonData.changeArguments.providerId = $("#panel-5-input-3").val();
-                jsonData.changeArguments.providerName = $("#panel-5-input-4").val();
-                jsonData.changeArguments.providerPhone = $("#panel-5-input-5").val();
+                jsonData.changeArguments.groceryName = $("#panel-5-input-1").val();
+                jsonData.changeArguments.groceryWebsite = $("#panel-5-input-2").val();
+
+                var fileInput = $("#panel-5-input-3").get(0);
+
+                if (window.File && window.FileReader && window.FileList && window.Blob) {
+                    if (fileInput.files.length > 0) {
+                        if (fileInput.files[0].size < maxFileSize) {
+                            file = fileInput.files[0];
+                        } else {
+                            statusBox('warning','NULL','El archivo cargado super el tamaño máxim de 15MB','add','NULL');
+                            $("#panel-5-input-4").removeClass("disabled").removeAttr("disabled");
+                            return false;
+                        }
+                        if (file != "null") {
+                            if (!functionHandler({functionName: "mimeChecker", fileType: fileInput.files[0].type})) {
+                                statusBox('warning', 'NULL', 'El archivo cargado no es permitido (PNG, JPEG, JPG)', 'add', 'NULL');
+                                $("#panel-5-input-4").removeClass("disabled").removeAttr("disabled");
+                                return false;
+                            }
+                        }
+                    }
+                } else {
+                    statusBox('danger', 'NULL', 'El buscador web utilizado no sporta los plug-in necesarios para cargar archivos, por favor utilice un buscador web diferente', 'add', '6000');
+                    $("#panel-5-input-4").removeClass("disabled").removeAttr("disabled");
+                    return false;
+                }
 
                 jsonData = JSON.stringify(jsonData);
 
+                var data = new FormData();
+                data.append("jsondata", jsonData);
+                if (file != "null") {
+                    data.append("filedata", fileInput.files[0], fileInput.files[0].name);
+                }
+
                 statusBox('loading','NULL','NULL','add','NULL');
                 $.ajax({
-                    contentType: "application/x-www-form-urlencoded",
                     url:"php/index_admin_data_change_handler.php",
                     type:"POST",
-                    data: jsonData,
-                    dataType:"json",
+                    data: data,
+                    cache: false,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
                     success: function(jsonResponse) {
                         var error = errorHandler({
                             errorCode: jsonResponse.statusCode
@@ -3868,13 +3919,15 @@ function dataChangeHandler(args) {
                     },
                     complete: function() {
                         statusBox('loading','NULL','NULL','remove','NULL');
-                        $("#panel-5-input-6").removeClass("disabled").removeAttr("disabled");
+                        $("#panel-5-input-4").removeClass("disabled").removeAttr("disabled");
                     }
                 });
             }
 
             break;
-        case "providerUpdate":
+        case "groceryUpdate":
+            var maxFileSize = 1.5e+7;
+            var file = "null";
 
             if (args.getNodeMethod.toLowerCase() != "null") {
                 switch (args.getNodeMethod) {
@@ -3896,18 +3949,50 @@ function dataChangeHandler(args) {
             if (nodesToUpdateArray.length == 0) {
                 statusBox('info', 'NULL', 'No se ha modificado ningún valor', 'add', 'NULL');
             } else {
-                $("#panel-6-input-6").addClass("disabled").attr("disabled", "disabled");
+                $("#panel-6-input-4").addClass("disabled").attr("disabled", "disabled");
+
+                var fileInput = "null";
+                for (var x = 0; x < nodesToUpdateArray.length; x++) {
+                    if ($(nodesToUpdateArray[x]).attr("type") == "file") {
+                        fileInput = nodesToUpdateArray[x];
+                        break;
+                    }
+                }
+                if (fileInput != "null") {
+                    if (window.File && window.FileReader && window.FileList && window.Blob) {
+                        if (fileInput.files.length > 0) {
+                            if (fileInput.files[0].size < maxFileSize) {
+                                file = fileInput.files[0];
+                            } else {
+                                statusBox('warning','NULL','El archivo cargado super el tamaño máxim de 15MB','add','NULL');
+                                $("#panel-6-input-4").removeClass("disabled").removeAttr("disabled");
+                                return false;
+                            }
+                            if (file != "null") {
+                                if (!functionHandler({functionName: "mimeChecker", fileType: fileInput.files[0].type})) {
+                                    statusBox('warning', 'NULL', 'El archivo cargado no es permitido (PNG, JPEG, JPG)', 'add', 'NULL');
+                                    $("#panel-6-input-4").removeClass("disabled").removeAttr("disabled");
+                                    return false;
+                                }
+                            }
+                        }
+                    } else {
+                        statusBox('danger', 'NULL', 'El buscador web utilizado no sporta los plug-in necesarios para cargar archivos, por favor utilice un buscador web diferente', 'add', '6000');
+                        $("#panel-6-input-4").removeClass("disabled").removeAttr("disabled");
+                        return false;
+                    }
+                }
 
                 var jsonData = new Object();
                 jsonData.changeHeader = args.changeName;
                 jsonData.changeArguments = new Object();
 
                 if (typeof(args.valuesToEdit) !== "undefined") {
-                    jsonData.changeArguments.providerId = args.valuesToEdit.providerId;
+                    jsonData.changeArguments.groceryId = args.valuesToEdit.groceryId;
                     jsonData.changeArguments.valueToUpdate = new Array(args.valuesToEdit.valueToUpdate.toString());
                     jsonData.changeArguments.fieldToUpdate = new Array(args.valuesToEdit.fieldToUpdate.toString());
                 } else {
-                    jsonData.changeArguments.providerId = $("#panel-6").attr("data-idHolder");
+                    jsonData.changeArguments.groceryId = $("#panel-6").attr("data-idHolder");
                     jsonData.changeArguments.valueToUpdate = new Array();
                     jsonData.changeArguments.fieldToUpdate = new Array();
 
@@ -3934,13 +4019,21 @@ function dataChangeHandler(args) {
 
                 jsonData = JSON.stringify(jsonData);
 
+                var data = new FormData();
+                data.append("jsondata", jsonData);
+                if (file != "null") {
+                    data.append("filedata", fileInput.files[0], fileInput.files[0].name);
+                }
+
                 statusBox('loading', 'NULL', 'NULL', 'add', 'NULL');
                 $.ajax({
-                    contentType: "application/x-www-form-urlencoded",
-                    url: "php/index_admin_data_change_handler.php",
-                    type: "POST",
-                    data: jsonData,
-                    dataType: "json",
+                    url:"php/index_admin_data_change_handler.php",
+                    type:"POST",
+                    data: data,
+                    cache: false,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
                     success: function (jsonResponse) {
                         var error = errorHandler({
                             errorCode: jsonResponse.statusCode
@@ -3958,7 +4051,7 @@ function dataChangeHandler(args) {
                     },
                     complete: function () {
                         statusBox('loading', 'NULL', 'NULL', 'remove', 'NULL');
-                        $("#panel-6-input-6").removeClass("disabled").removeAttr("disabled");
+                        $("#panel-6-input-4").removeClass("disabled").removeAttr("disabled");
                     }
                 });
             }
@@ -5136,6 +5229,26 @@ function functionHandler(args) {
             excelName = args.fileName;
             $(args.nodeItem).removeData();
             $(args.nodeItem).table2excel();
+            break;
+        case "mimeChecker":
+
+            var response;
+            switch(args.fileType) {
+                case 'image/png':
+                case 'image/jpeg':
+                case 'image/pjpeg':
+                    response = true;
+                    break;
+                default:
+                    response = false;
+                    break;
+            }
+
+            if (typeof(args.onFunctionDone) !== "undefined") {
+                args.onFunctionDone();
+            }
+            return response;
+
             break;
         default:
             errorHandler({

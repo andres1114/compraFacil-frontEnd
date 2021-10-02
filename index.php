@@ -48,7 +48,7 @@
                         <span><?php echo $toShowuserName ?></span>
                     </div>
                 </div>
-                <hr/>
+                <hr class="border-color-top"/>
                 <div id="action-info-section">
                     <div id="options-container-1" data-item="option-panel" style="display: none;">
                         <div class="options-title">Acciones</div>

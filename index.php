@@ -764,20 +764,20 @@
                     <div class="panel-body-container" data-item="panel-body-container" id="form-7">
                         <div class="row no-margin no-padding">
                             <div class="form-group">
-                                <label for="panel-7-input-1">Proveedor de producto<span class="required-field" title="Requerido">*</span></label>
+                                <label for="panel-7-input-1">Almacén de producto<span class="required-field" title="Requerido">*</span></label>
                                 <select class="form-control input-sm" id="panel-7-input-1" required></select>
                             </div>
                             <div class="form-group">
-                                <label for="panel-7-input-2">Tipo de producto<span class="required-field" title="Requerido">*</span></label>
-                                <select class="form-control input-sm" id="panel-7-input-2" required></select>
+                                <label for="panel-7-input-2">Nombre de producto<span class="required-field" title="Requerido">*</span></label>
+                                <input type="text" class="form-control input-sm" id="panel-7-input-2" required/>
                             </div>
                             <div class="form-group">
-                                <label for="panel-7-input-3">Nombre de producto<span class="required-field" title="Requerido">*</span></label>
-                                <input type="text" class="form-control input-sm" id="panel-7-input-3" required/>
+                                <label for="panel-7-input-3">Precio de producto<span class="required-field" title="Requerido">*</span></label>
+                                <input type="number" class="form-control input-sm" id="panel-7-input-3"/>
                             </div>
                             <div class="form-group">
-                                <label for="panel-7-input-4">Precio de producto<span class="required-field" title="Requerido">*</span></label>
-                                <input type="number" class="form-control input-sm" id="panel-7-input-4"/>
+                                <label for="panel-7-input-4">Imagen de producto</label>
+                                <input type="file" class="form-control input-sm" id="panel-7-input-4"/>
                             </div>
                         </div>
                         <hr/>

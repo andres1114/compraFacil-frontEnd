@@ -45,20 +45,6 @@ function main() {
             }
         });
     });
-    $("#panel-9-input-6").bind("click",function(){
-        dataChangeHandler({
-            changeName: "kardexRegistry"
-            ,changeOptions: {
-                getNodeMethod: "id"
-                ,nodeItem: "form-9"
-            }
-        });
-    });
-    $("#panel-10-input-4").bind("click",function(){
-        dataChangeHandler({
-            changeName: "saleRegistry"
-        });
-    });
     $("#panel-2-input-12").bind("click",function(){
         dataChangeHandler({
             changeName: "personUpdate"
@@ -228,7 +214,7 @@ function main() {
                 functionHandler({
                     functionName: "focusInput"
                     , getNodeMethod: "id"
-                    , nodeItem: "panel-7-input-3"
+                    , nodeItem: "panel-7-input-1"
                     , delay: 100
                 });
             }
@@ -501,13 +487,6 @@ function main() {
         ,callbackNode: "table-4"
         ,deleteNodeContent: true
     });
-    callHandler({
-        callName: "showProductsForKardex"
-        ,callArguments: null
-        ,getNodeMethod: "id"
-        ,callbackNode: "table-5"
-        ,deleteNodeContent: true
-    });
     functionHandler({
         functionName: "selectFiller"
         ,callHeader: "showUserType"
@@ -552,36 +531,6 @@ function main() {
     });
     // functionHandler({
     //     functionName: "selectFiller"
-    //     ,callHeader: "showCities"
-    //     ,getNodeMethod: "id"
-    //     ,nodeItem: "panel-5-input-1"
-    //     ,deleteNodeContent: true
-    //     ,addDividerToNode: false
-    //     ,addNodeBeforeLoad: false
-    //     ,triggerChosen: true
-    //     ,chosenOptions: {
-    //         widthUnit: "%"
-    //         ,widthValue: 100
-    //     }
-    //     ,triggerOnChange: false
-    // });
-    // functionHandler({
-    //     functionName: "selectFiller"
-    //     ,callHeader: "showCities"
-    //     ,getNodeMethod: "id"
-    //     ,nodeItem: "panel-6-input-1"
-    //     ,deleteNodeContent: true
-    //     ,addDividerToNode: false
-    //     ,addNodeBeforeLoad: false
-    //     ,triggerChosen: true
-    //     ,chosenOptions: {
-    //         widthUnit: "%"
-    //         ,widthValue: 100
-    //     }
-    //     ,triggerOnChange: false
-    // });
-    // functionHandler({
-    //     functionName: "selectFiller"
     //     ,callHeader: "showPersonIdType"
     //     ,getNodeMethod: "id"
     //     ,nodeItem: "panel-5-input-2"
@@ -617,65 +566,6 @@ function main() {
         }
         ,triggerOnChange: false
         ,selectedOption: 2
-    });
-    functionHandler({
-        functionName: "selectFiller"
-        ,callHeader: "showProductTypes"
-        ,getNodeMethod: "id"
-        ,nodeItem: "panel-7-input-2"
-        ,deleteNodeContent: true
-        ,addDividerToNode: false
-        ,addNodeBeforeLoad: false
-        ,triggerChosen: true
-        ,chosenOptions: {
-            widthUnit: "%"
-            ,widthValue: 100
-        }
-        ,triggerOnChange: false
-        ,selectedOption: 2
-    });
-    functionHandler({
-        functionName: "selectFiller"
-        ,callHeader: "showProductTypes"
-        ,getNodeMethod: "id"
-        ,nodeItem: "panel-8-input-2"
-        ,deleteNodeContent: true
-        ,addDividerToNode: false
-        ,addNodeBeforeLoad: false
-        ,triggerChosen: true
-        ,chosenOptions: {
-            widthUnit: "%"
-            ,widthValue: 100
-        }
-        ,triggerOnChange: false
-        ,selectedOption: 2
-    });
-    functionHandler({
-        functionName: "selectFiller"
-        ,callHeader: "showPayTypes"
-        ,getNodeMethod: "id"
-        ,nodeItem: "panel-10-input-3"
-        ,deleteNodeContent: true
-        ,addDividerToNode: false
-        ,addNodeBeforeLoad: false
-        ,triggerChosen: false
-        ,triggerOnChange: false
-        ,selectedOption: 1
-    });
-    functionHandler({
-        functionName: "selectFiller"
-        ,callHeader: "showPayTypes"
-        ,getNodeMethod: "id"
-        ,nodeItem: "table-9-pay-method-id-field"
-        ,deleteNodeContent: true
-        ,addDividerToNode: false
-        ,addNodeBeforeLoad: true
-        ,nodeBeforeLoadArray: {
-            id: [0]
-            ,name: ["Todos"]
-        }
-        ,triggerChosen: false
-        ,triggerOnChange: false
     });
 
 
@@ -4058,6 +3948,8 @@ function dataChangeHandler(args) {
 
             break;
         case "productRegistry":
+            var maxFileSize = 1.5e+7;
+            var file = "null";
 
             var checkFormInputs = functionHandler({
                 functionName: "checkForEmptyFormFields"
@@ -4073,20 +3965,52 @@ function dataChangeHandler(args) {
 
                 jsonData.changeHeader = args.changeName;
                 jsonData.changeArguments = new Object();
-                jsonData.changeArguments.productProviderId = $("#panel-7-input-1").val();
-                jsonData.changeArguments.productTypeId = $("#panel-7-input-2").val();
-                jsonData.changeArguments.productName = $("#panel-7-input-3").val();
-                jsonData.changeArguments.productPrize = $("#panel-7-input-4").val();
+                jsonData.changeArguments.groceryId = $("#panel-7-input-1").val();
+                jsonData.changeArguments.productName = $("#panel-7-input-2").val();
+                jsonData.changeArguments.productPrize = $("#panel-7-input-3").val();
+
+                var fileInput = $("#panel-7-input-4").get(0);
+
+                if (window.File && window.FileReader && window.FileList && window.Blob) {
+                    if (fileInput.files.length > 0) {
+                        if (fileInput.files[0].size < maxFileSize) {
+                            file = fileInput.files[0];
+                        } else {
+                            statusBox('warning','NULL','El archivo cargado super el tamaño máxim de 15MB','add','NULL');
+                            $("#panel-7-input-5").removeClass("disabled").removeAttr("disabled");
+                            return false;
+                        }
+                        if (file != "null") {
+                            if (!functionHandler({functionName: "mimeChecker", fileType: fileInput.files[0].type})) {
+                                statusBox('warning', 'NULL', 'El archivo cargado no es permitido (PNG, JPEG, JPG)', 'add', 'NULL');
+                                $("#panel-7-input-5").removeClass("disabled").removeAttr("disabled");
+                                return false;
+                            }
+                        }
+                    }
+                } else {
+                    statusBox('danger', 'NULL', 'El buscador web utilizado no sporta los plug-in necesarios para cargar archivos, por favor utilice un buscador web diferente', 'add', '6000');
+                    $("#panel-7-input-5").removeClass("disabled").removeAttr("disabled");
+                    return false;
+                }
 
                 jsonData = JSON.stringify(jsonData);
 
+                var data = new FormData();
+                data.append("jsondata", jsonData);
+                if (file != "null") {
+                    data.append("filedata", fileInput.files[0], fileInput.files[0].name);
+                }
+
                 statusBox('loading','NULL','NULL','add','NULL');
                 $.ajax({
-                    contentType: "application/x-www-form-urlencoded",
                     url:"php/index_admin_data_change_handler.php",
                     type:"POST",
-                    data: jsonData,
-                    dataType:"json",
+                    data: data,
+                    cache: false,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
                     success: function(jsonResponse) {
                         var error = errorHandler({
                             errorCode: jsonResponse.statusCode

@@ -18,7 +18,7 @@
          <meta charset="utf-8">
          <meta http-equiv="X-UA-Compatible" content="IE=edge">
          <meta name="viewport" content="width=device-width, initial-scale=1">
-         <title>Ferreteria CRM - Administración</title>
+         <title>Compra Fácil - Administración</title>
          <link rel="shortcut icon" href="css/images/favicon.png">
          <link href="css/bootstrap.css" rel="stylesheet" media="screen">
          <link href="css/bootstrap-theme.css" rel="stylesheet" media="screen">
@@ -40,15 +40,15 @@
             <input type="text" id="nonce-value" value="<?php echo NONCE_VALUE ?>"/>
         </div>
         <div class="row no-margin no-padding">
-            <div class="col-xs-2 no-margin full-height-vh navbar-inverse cube-box" id="left-panel">
+            <div class="col-xs-2 no-margin full-height-vh style-navbar cube-box" id="left-panel">
                 <div id="user-info-section" style="margin-top: 20px;">
-                    <div class="text-bold text-white" style="font-size: 16pt;">Bienvenido</div>
-                    <div class="text-white" style="font-size: 11pt; margin-top: 5px;">
+                    <div class="text-bold text-orange" style="font-size: 16pt;">Bienvenido</div>
+                    <div class="text-orange" style="font-size: 11pt; margin-top: 5px;">
                         <span class="fas fa-user" style="margin-right: 5px;"></span>
                         <span><?php echo $toShowuserName ?></span>
                     </div>
                 </div>
-                <hr/>
+                <hr class="border-color-top"/>
                 <div id="action-info-section">
                     <div id="options-container-1" data-item="option-panel" style="display: none;">
                         <div class="options-title">Acciones</div>
@@ -341,10 +341,10 @@
                                         <input type="checkbox" id="table-4-checkall"/>
                                     </th>
                                     <th class="center-text pointer">IT</th>
-                                    <th class="center-text pointer">Producto</th>
-                                    <th class="center-text pointer">Tipo producto</th>
-                                    <th class="center-text pointer">Proveedor</th>
-                                    <th class="center-text pointer">Precio por unidad</th>
+                                    <th class="center-text pointer">Nombre Almacén</th>
+                                    <th class="center-text pointer">Nombre Producto</th>
+                                    <th class="center-text pointer">Precio Producto</th>
+                                    <th class="center-text pointer">Imagen Producto</th>                                    
                                     <th class="center-text pointer">Acción</th>
                                     <th class="center-text pointer">Estado</th>
                                 </tr>
@@ -727,8 +727,13 @@
                                 <input type="text" class="form-control input-sm" id="panel-6-input-2" data-update-field="1" data-field-to-update="2"></input>
                             </div>
                             <div class="form-group">
-                                <label for="panel-6-input-3">Logo almacén</label>
-                                <input type="text" class="form-control input-sm" id="panel-6-input-3" data-update-field="1" data-field-to-update="3"/>
+                                <label for="panel-6-input-3">Logo vigente de almacén</label>
+                                <div class="well tbl-text-align-center">
+                                    <img id="panel-6-img-1" class="image-logo-2" src="" alt="Grocery Logo" style="display:none;"/>
+                                    <h3 id="panel-6-no-image-1" style="display:none;">Sin imagen</h3>
+                                </div>
+                                <label for="panel-6-input-3">Nuevo logo</label>
+                                <input type="file" class="form-control input-sm" id="panel-6-input-3" data-update-field="1" data-field-to-update="3"/>
                             </div>                            
                         </div>
                         <hr/>
@@ -759,20 +764,20 @@
                     <div class="panel-body-container" data-item="panel-body-container" id="form-7">
                         <div class="row no-margin no-padding">
                             <div class="form-group">
-                                <label for="panel-7-input-1">Proveedor de producto<span class="required-field" title="Requerido">*</span></label>
+                                <label for="panel-7-input-1">Almacén de producto<span class="required-field" title="Requerido">*</span></label>
                                 <select class="form-control input-sm" id="panel-7-input-1" required></select>
                             </div>
                             <div class="form-group">
-                                <label for="panel-7-input-2">Tipo de producto<span class="required-field" title="Requerido">*</span></label>
-                                <select class="form-control input-sm" id="panel-7-input-2" required></select>
+                                <label for="panel-7-input-2">Nombre de producto<span class="required-field" title="Requerido">*</span></label>
+                                <input type="text" class="form-control input-sm" id="panel-7-input-2" required/>
                             </div>
                             <div class="form-group">
-                                <label for="panel-7-input-3">Nombre de producto<span class="required-field" title="Requerido">*</span></label>
-                                <input type="text" class="form-control input-sm" id="panel-7-input-3" required/>
+                                <label for="panel-7-input-3">Precio de producto<span class="required-field" title="Requerido">*</span></label>
+                                <input type="number" class="form-control input-sm" id="panel-7-input-3"/>
                             </div>
                             <div class="form-group">
-                                <label for="panel-7-input-4">Precio de producto<span class="required-field" title="Requerido">*</span></label>
-                                <input type="number" class="form-control input-sm" id="panel-7-input-4"/>
+                                <label for="panel-7-input-4">Imagen de producto</label>
+                                <input type="file" class="form-control input-sm" id="panel-7-input-4"/>
                             </div>
                         </div>
                         <hr/>
@@ -803,21 +808,26 @@
                     <div class="panel-body-container" data-item="panel-body-container" id="form-8">
                         <div class="row no-margin no-padding">
                             <div class="form-group">
-                                <label for="panel-8-input-1">Proveedor de producto</label>
+                                <label for="panel-8-input-1">Almacén de producto</label>
                                 <select class="form-control input-sm" id="panel-8-input-1" data-update-field="1" data-field-to-update="1"></select>
                             </div>
                             <div class="form-group">
-                                <label for="panel-8-input-2">Tipo de producto</label>
-                                <select class="form-control input-sm" id="panel-8-input-2" data-update-field="1" data-field-to-update="2"></select>
+                                <label for="panel-8-input-2">Nombre de producto</label>
+                                <input type="text" class="form-control input-sm" id="panel-8-input-2" data-update-field="1" data-field-to-update="2"></input>
                             </div>
                             <div class="form-group">
-                                <label for="panel-8-input-3">Nombre de producto</label>
+                                <label for="panel-8-input-3">precio de producto</label>
                                 <input type="text" class="form-control input-sm" id="panel-8-input-3" data-update-field="1" data-field-to-update="3"/>
-                            </div>
+                            </div>                            
                             <div class="form-group">
-                                <label for="panel-8-input-4">Precio de producto</label>
-                                <input type="number" class="form-control input-sm" id="panel-8-input-4" data-update-field="1" data-field-to-update="4"/>
-                            </div>
+                                <label for="panel-8-input-4">Logo vigente del producto</label>
+                                <div class="well tbl-text-align-center">
+                                    <img id="panel-8-img-1" class="image-logo-2" src="" alt="Product Logo" style="display:none;"/>
+                                    <h3 id="panel-8-no-image-1" style="display:none;">Sin imagen</h3>
+                                </div>
+                                <label for="panel-8-input-4">Nueva imagen</label>
+                                <input type="file" class="form-control input-sm" id="panel-8-input-4" data-update-field="1" data-field-to-update="4"/>
+                            </div>               
                         </div>
                         <hr/>
                         <div class="row no-margin no-padding">

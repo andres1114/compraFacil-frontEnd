@@ -70,6 +70,12 @@
 .text-white {
     color: white;
 }
+.text-orange {
+    color: #D65004;
+}
+.border-color-top {
+    color: #D65004;
+}
 .center-text {
     margin: 0 auto;
     text-align: center;
@@ -107,6 +113,10 @@
 .no-border {
     border: 0px !important;
 }
+.border-color-top {
+    border-color: #D65004;
+
+}
 .unselectable {
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
@@ -115,13 +125,13 @@
     user-select: none;
 }
 .list-group li {
-    background-color: #3c3c3c;
-    border-color: #3c3c3c;
+    background-color: #D65004;
+    border-color: #D65004;
     color: white;
 }
 .list-group li:hover {
-    background-color: #333333;
-    border-color: #333333;
+    background: #b13e08;
+    border-color: #b13e08;
     color: white;
 }
 .background-image-1 {
@@ -158,7 +168,16 @@
 }
 .icon-menu-item:hover {
     cursor: pointer;
-    background-color: #d9d9d9;
+    background-color: #ffffff;
+}
+.icon-menu-item:hover > .icon-menu-item-text {
+    color: #D65004;
+}
+.icon-menu-item:hover > .icon-menu-item-icon {
+    color: #D65004;
+}
+.icon-menu-item:hover > hr {
+    border-top-color: #D65004;
 }
 .icon-menu-item > .icon-menu-item-icon {
     padding-top: 5px;
@@ -280,4 +299,16 @@
     right: 0;
     z-index: -1;
     border: 0px;
+}
+.style-navbar {
+    background: #ffffff;
+    box-shadow: none;
+}
+.image-logo-1 {
+    width: 96px;
+    height: 56px;
+}
+.image-logo-2 {
+    width: 290px;
+    height: 170px;
 }

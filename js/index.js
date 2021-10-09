@@ -45,20 +45,6 @@ function main() {
             }
         });
     });
-    $("#panel-9-input-6").bind("click",function(){
-        dataChangeHandler({
-            changeName: "kardexRegistry"
-            ,changeOptions: {
-                getNodeMethod: "id"
-                ,nodeItem: "form-9"
-            }
-        });
-    });
-    $("#panel-10-input-4").bind("click",function(){
-        dataChangeHandler({
-            changeName: "saleRegistry"
-        });
-    });
     $("#panel-2-input-12").bind("click",function(){
         dataChangeHandler({
             changeName: "personUpdate"
@@ -228,7 +214,7 @@ function main() {
                 functionHandler({
                     functionName: "focusInput"
                     , getNodeMethod: "id"
-                    , nodeItem: "panel-7-input-3"
+                    , nodeItem: "panel-7-input-1"
                     , delay: 100
                 });
             }
@@ -501,13 +487,6 @@ function main() {
         ,callbackNode: "table-4"
         ,deleteNodeContent: true
     });
-    callHandler({
-        callName: "showProductsForKardex"
-        ,callArguments: null
-        ,getNodeMethod: "id"
-        ,callbackNode: "table-5"
-        ,deleteNodeContent: true
-    });
     functionHandler({
         functionName: "selectFiller"
         ,callHeader: "showUserType"
@@ -552,36 +531,6 @@ function main() {
     });
     // functionHandler({
     //     functionName: "selectFiller"
-    //     ,callHeader: "showCities"
-    //     ,getNodeMethod: "id"
-    //     ,nodeItem: "panel-5-input-1"
-    //     ,deleteNodeContent: true
-    //     ,addDividerToNode: false
-    //     ,addNodeBeforeLoad: false
-    //     ,triggerChosen: true
-    //     ,chosenOptions: {
-    //         widthUnit: "%"
-    //         ,widthValue: 100
-    //     }
-    //     ,triggerOnChange: false
-    // });
-    // functionHandler({
-    //     functionName: "selectFiller"
-    //     ,callHeader: "showCities"
-    //     ,getNodeMethod: "id"
-    //     ,nodeItem: "panel-6-input-1"
-    //     ,deleteNodeContent: true
-    //     ,addDividerToNode: false
-    //     ,addNodeBeforeLoad: false
-    //     ,triggerChosen: true
-    //     ,chosenOptions: {
-    //         widthUnit: "%"
-    //         ,widthValue: 100
-    //     }
-    //     ,triggerOnChange: false
-    // });
-    // functionHandler({
-    //     functionName: "selectFiller"
     //     ,callHeader: "showPersonIdType"
     //     ,getNodeMethod: "id"
     //     ,nodeItem: "panel-5-input-2"
@@ -620,9 +569,9 @@ function main() {
     });
     functionHandler({
         functionName: "selectFiller"
-        ,callHeader: "showProductTypes"
+        ,callHeader: "showGroceries"
         ,getNodeMethod: "id"
-        ,nodeItem: "panel-7-input-2"
+        ,nodeItem: "panel-8-input-1"
         ,deleteNodeContent: true
         ,addDividerToNode: false
         ,addNodeBeforeLoad: false
@@ -633,49 +582,6 @@ function main() {
         }
         ,triggerOnChange: false
         ,selectedOption: 2
-    });
-    functionHandler({
-        functionName: "selectFiller"
-        ,callHeader: "showProductTypes"
-        ,getNodeMethod: "id"
-        ,nodeItem: "panel-8-input-2"
-        ,deleteNodeContent: true
-        ,addDividerToNode: false
-        ,addNodeBeforeLoad: false
-        ,triggerChosen: true
-        ,chosenOptions: {
-            widthUnit: "%"
-            ,widthValue: 100
-        }
-        ,triggerOnChange: false
-        ,selectedOption: 2
-    });
-    functionHandler({
-        functionName: "selectFiller"
-        ,callHeader: "showPayTypes"
-        ,getNodeMethod: "id"
-        ,nodeItem: "panel-10-input-3"
-        ,deleteNodeContent: true
-        ,addDividerToNode: false
-        ,addNodeBeforeLoad: false
-        ,triggerChosen: false
-        ,triggerOnChange: false
-        ,selectedOption: 1
-    });
-    functionHandler({
-        functionName: "selectFiller"
-        ,callHeader: "showPayTypes"
-        ,getNodeMethod: "id"
-        ,nodeItem: "table-9-pay-method-id-field"
-        ,deleteNodeContent: true
-        ,addDividerToNode: false
-        ,addNodeBeforeLoad: true
-        ,nodeBeforeLoadArray: {
-            id: [0]
-            ,name: ["Todos"]
-        }
-        ,triggerChosen: false
-        ,triggerOnChange: false
     });
 
 
@@ -1958,7 +1864,7 @@ function responseHandler(args) {
                             statusBox('success','NULL','Hecho','add','NULL');
                             break;
                         case 2:
-                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurriod un error en la carga de la imagen','add','NULL');
+                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurrido un error en la carga de la imagen','add','NULL');
                             break;
                         case 3:
                             statusBox('warning','NULL','Hecho con errores:<br/>El tamaño del archivo ha excedido 15MB','add','NULL');
@@ -1967,7 +1873,7 @@ function responseHandler(args) {
                             statusBox('warning','NULL','Hecho con errores:<br/>El nombre del archivo contiene más de un punto (.)','add','NULL');
                             break;
                         case 5:
-                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurriod un error en el guardado de la imagen en /php/imagenes','add','NULL');
+                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurrido un error en el guardado de la imagen en /php/imagenes','add','NULL');
                             break;
                         default:
                             statusBox('success','NULL','Hecho','add','NULL');
@@ -1986,6 +1892,22 @@ function responseHandler(args) {
                         ,callHeader: "showGroceries"
                         ,getNodeMethod: "id"
                         ,nodeItem: "panel-7-input-1"
+                        ,deleteNodeContent: true
+                        ,addDividerToNode: false
+                        ,addNodeBeforeLoad: false
+                        ,triggerChosen: true
+                        ,chosenOptions: {
+                            widthUnit: "%"
+                            ,widthValue: 100
+                        }
+                        ,triggerOnChange: false
+                        ,selectedOption: 2
+                    });
+                    functionHandler({
+                        functionName: "selectFiller"
+                        ,callHeader: "showGroceries"
+                        ,getNodeMethod: "id"
+                        ,nodeItem: "panel-8-input-1"
                         ,deleteNodeContent: true
                         ,addDividerToNode: false
                         ,addNodeBeforeLoad: false
@@ -2157,10 +2079,10 @@ function responseHandler(args) {
 
                                     if (btnStatus == "active") {
                                         var valueToUpdate = "false";
-                                        var confirmText = "¿Está seguro en desactivar el proveedor?";
+                                        var confirmText = "¿Está seguro en desactivar el almacén?";
                                     } else {
                                         var valueToUpdate = "true";
-                                        var confirmText = "¿Está seguro en activar el proveedor?";
+                                        var confirmText = "¿Está seguro en activar el almacén?";
                                     }
 
                                     var _confirm = confirm(confirmText);
@@ -2278,7 +2200,7 @@ function responseHandler(args) {
                             });
                             break;
                         case 2:
-                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurriod un error en la carga de la imagen','add','NULL');
+                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurrido un error en la carga de la imagen','add','NULL');
                             $("#panel-6-input-3").val("");
                             break;
                         case 3:
@@ -2290,11 +2212,11 @@ function responseHandler(args) {
                             $("#panel-6-input-3").val("");
                             break;
                         case 5:
-                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurriod un error en el guardado de la imagen en /php/imagenes','add','6000');
+                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurrido un error en el guardado de la imagen en /php/imagenes','add','6000');
                             $("#panel-6-input-3").val("");
                             break;
                         case 6:
-                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurriod un error en el borrado de la imagen anterior en /php/imagenes','add','6000');
+                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurrido un error en el borrado de la imagen anterior en /php/imagenes','add','6000');
                             $("#panel-6-input-3").val("");
                             break;
                         default:
@@ -2343,6 +2265,7 @@ function responseHandler(args) {
                 case 1:
                     statusBox('success','NULL','Hecho','add','NULL');
 
+                    $("#panel-7-input-2").val("");
                     $("#panel-7-input-3").val("");
                     $("#panel-7-input-4").val("");
 
@@ -2352,14 +2275,7 @@ function responseHandler(args) {
                         ,getNodeMethod: "id"
                         ,callbackNode: "table-4"
                         ,deleteNodeContent: true
-                    });
-                    callHandler({
-                        callName: "showProductsForKardex"
-                        ,callArguments: null
-                        ,getNodeMethod: "id"
-                        ,callbackNode: "table-5"
-                        ,deleteNodeContent: true
-                    });
+                    });                    
 
                     break;
             }
@@ -2393,10 +2309,10 @@ function responseHandler(args) {
             }
 
             var responseItem_1 = args.jsonResponse.values.id;
-            var responseItem_2 = args.jsonResponse.values.productName;
-            var responseItem_3 = args.jsonResponse.values.productType;
-            var responseItem_4 = args.jsonResponse.values.productProvider;
-            var responseItem_5 = args.jsonResponse.values.productPrize;
+            var responseItem_2 = args.jsonResponse.values.groceryName;
+            var responseItem_3 = args.jsonResponse.values.productName;
+            var responseItem_4 = args.jsonResponse.values.productPrize;
+            var responseItem_5 = args.jsonResponse.values.productImage;
             var responseItem_6 = args.jsonResponse.values.active;
 
             if (responseItem_1 !== null && responseItem_1 !== "" && responseItem_1.length !== 0) {
@@ -2431,15 +2347,26 @@ function responseHandler(args) {
 
                                 break;
                             case 3:
-                                $(tdArray[y]).addClass("tbl-text-align-center").html(responseItem_3[x]);
+                                $(tdArray[y]).addClass("tbl-text-align-left").html(responseItem_3[x]);
 
                                 break;
                             case 4:
-                                $(tdArray[y]).addClass("tbl-text-align-center").html(responseItem_4[x]);
+                                $(tdArray[y]).addClass("tbl-text-align-left").html(responseItem_4[x]);
 
                                 break;
                             case 5:
-                                $(tdArray[y]).addClass("tbl-text-align-center").html(responseItem_5[x]);
+                                if (responseItem_5[x] !== null) {
+                                    var tempImageNode = document.createElement("img");
+                                    $(tempImageNode).attr({
+                                        "src": "php/imagenes/" + responseItem_5[x],
+                                        "alt": "Grocery Image",
+                                        "class": "image-logo-1"
+                                    });
+                                    $(tdArray[y]).addClass("tbl-text-align-center").append(tempImageNode);
+                                } else {
+                                    $(tdArray[y]).addClass("tbl-text-align-center").html("sin imagen");
+                                }
+
 
                                 break;
                             case 6:
@@ -2538,6 +2465,7 @@ function responseHandler(args) {
                                 });
 
                                 $(tdArray[y]).addClass("tbl-text-align-center").append(button);
+
                                 break;
                         }
 
@@ -2594,50 +2522,90 @@ function responseHandler(args) {
             break;
         case "showProductData":
 
-            var responseItem_1 = args.jsonResponse.values.productProviderId;
-            var responseItem_2 = args.jsonResponse.values.productTypeId;
-            var responseItem_3 = args.jsonResponse.values.productName;
-            var responseItem_4 = args.jsonResponse.values.productPrize;
-
+            var responseItem_1 = args.jsonResponse.values.groceryId;
+            var responseItem_2 = args.jsonResponse.values.productName;
+            var responseItem_3 = args.jsonResponse.values.productPrize;
+            var responseItem_4 = args.jsonResponse.values.productImage;
+            
             $("#panel-8-input-1").find("option").removeAttr("selected", "selected");
             $("#panel-8-input-1").find("option[value='" + responseItem_1 + "']").attr("selected", "selected");
             $("#panel-8-input-1").trigger("chosen:updated");
-            $("#panel-8-input-2").find("option").removeAttr("selected", "selected");
-            $("#panel-8-input-2").find("option[value='" + responseItem_2 + "']").attr("selected", "selected");
-            $("#panel-8-input-2").trigger("chosen:updated");
 
+            $("#panel-8-input-2").val(responseItem_2);
             $("#panel-8-input-3").val(responseItem_3);
-            $("#panel-8-input-4").val(responseItem_4);
+            $("#panel-6-input-4").val("");
+
+            if (responseItem_4 !== null) {
+                $("#panel-8-img-1").attr("src", "php/imagenes/" + responseItem_4).show();
+                $("#panel-8-no-image-1").hide();
+            } else {
+                $("#panel-8-img-1").hide();
+                $("#panel-8-no-image-1").show();
+            }
 
             if (typeof(args.passedArguments.onCallDone) !== "undefined") {
                 args.passedArguments.onCallDone();
             }
             break;
         case "productUpdate":
-
-            statusBox('success','NULL','Hecho','add','NULL');
-            $("#panel-8").attr("data-idholder", "NULL");
-
-            functionHandler({
-                functionName: 'windowHandler'
-                , getNodeMethod: 'id'
-                , nodeItem: 'panel-8-container'
-                , action: 'close'
-            });
+            switch (parseInt(args.jsonResponse.values.dataChangeCode,10)) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    switch (parseInt(args.jsonResponse.values.dataChangeCode,10)) {
+                        case 1:
+                            statusBox('success','NULL','Hecho','add','NULL');
+                            $("#panel-8").attr("data-idholder", "NULL");
+                            functionHandler({
+                                functionName: 'windowHandler'
+                                , getNodeMethod: 'id'
+                                , nodeItem: 'panel-8-container'
+                                , action: 'close'
+                            });
+                            break;
+                        case 2:
+                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurrido un error en la carga de la imagen','add','NULL');
+                            $("#panel-8-input-4").val("");
+                            break;
+                        case 3:
+                            statusBox('warning','NULL','Hecho con errores:<br/>El tamaño del archivo ha excedido 15MB','add','NULL');
+                            $("#panel-8-input-4").val("");
+                            break;
+                        case 4:
+                            statusBox('warning','NULL','Hecho con errores:<br/>El nombre del archivo contiene más de un punto (.)','add','NULL');
+                            $("#panel-8-input-4").val("");
+                            break;
+                        case 5:
+                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurrido un error en el guardado de la imagen en /php/imagenes','add','6000');
+                            $("#panel-8-input-4").val("");
+                            break;
+                        case 6:
+                            statusBox('warning','NULL','Hecho con errores:<br/>Ha ocurrido un error en el borrado de la imagen anterior en /php/imagenes','add','6000');
+                            $("#panel-8-input-4").val("");
+                            break;
+                        default:
+                            statusBox('success','NULL','Hecho','add','NULL');
+                            $("#panel-8").attr("data-idholder", "NULL");
+                            functionHandler({
+                                functionName: 'windowHandler'
+                                , getNodeMethod: 'id'
+                                , nodeItem: 'panel-8-container'
+                                , action: 'close'
+                            });
+                            break;
+                    }
+                    break;
+            }
             callHandler({
                 callName: "showProducts"
                 ,callArguments: null
                 ,getNodeMethod: "id"
                 ,callbackNode: "table-4"
                 ,deleteNodeContent: true
-            });
-            callHandler({
-                callName: "showProductsForKardex"
-                ,callArguments: null
-                ,getNodeMethod: "id"
-                ,callbackNode: "table-5"
-                ,deleteNodeContent: true
-            });
+            });           
 
             break;
         case "showProductsForKardex":
@@ -4058,6 +4026,8 @@ function dataChangeHandler(args) {
 
             break;
         case "productRegistry":
+            var maxFileSize = 1.5e+7;
+            var file = "null";
 
             var checkFormInputs = functionHandler({
                 functionName: "checkForEmptyFormFields"
@@ -4073,20 +4043,52 @@ function dataChangeHandler(args) {
 
                 jsonData.changeHeader = args.changeName;
                 jsonData.changeArguments = new Object();
-                jsonData.changeArguments.productProviderId = $("#panel-7-input-1").val();
-                jsonData.changeArguments.productTypeId = $("#panel-7-input-2").val();
-                jsonData.changeArguments.productName = $("#panel-7-input-3").val();
-                jsonData.changeArguments.productPrize = $("#panel-7-input-4").val();
+                jsonData.changeArguments.groceryId = $("#panel-7-input-1").val();
+                jsonData.changeArguments.productName = $("#panel-7-input-2").val();
+                jsonData.changeArguments.productPrize = $("#panel-7-input-3").val();
+
+                var fileInput = $("#panel-7-input-4").get(0);
+
+                if (window.File && window.FileReader && window.FileList && window.Blob) {
+                    if (fileInput.files.length > 0) {
+                        if (fileInput.files[0].size < maxFileSize) {
+                            file = fileInput.files[0];
+                        } else {
+                            statusBox('warning','NULL','El archivo cargado super el tamaño máxim de 15MB','add','NULL');
+                            $("#panel-7-input-5").removeClass("disabled").removeAttr("disabled");
+                            return false;
+                        }
+                        if (file != "null") {
+                            if (!functionHandler({functionName: "mimeChecker", fileType: fileInput.files[0].type})) {
+                                statusBox('warning', 'NULL', 'El archivo cargado no es permitido (PNG, JPEG, JPG)', 'add', 'NULL');
+                                $("#panel-7-input-5").removeClass("disabled").removeAttr("disabled");
+                                return false;
+                            }
+                        }
+                    }
+                } else {
+                    statusBox('danger', 'NULL', 'El buscador web utilizado no sporta los plug-in necesarios para cargar archivos, por favor utilice un buscador web diferente', 'add', '6000');
+                    $("#panel-7-input-5").removeClass("disabled").removeAttr("disabled");
+                    return false;
+                }
 
                 jsonData = JSON.stringify(jsonData);
 
+                var data = new FormData();
+                data.append("jsondata", jsonData);
+                if (file != "null") {
+                    data.append("filedata", fileInput.files[0], fileInput.files[0].name);
+                }
+
                 statusBox('loading','NULL','NULL','add','NULL');
                 $.ajax({
-                    contentType: "application/x-www-form-urlencoded",
                     url:"php/index_admin_data_change_handler.php",
                     type:"POST",
-                    data: jsonData,
-                    dataType:"json",
+                    data: data,
+                    cache: false,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
                     success: function(jsonResponse) {
                         var error = errorHandler({
                             errorCode: jsonResponse.statusCode
@@ -4112,6 +4114,9 @@ function dataChangeHandler(args) {
             break;
         case "productUpdate":
 
+            var maxFileSize = 1.5e+7;
+            var file = "null";
+
             if (args.getNodeMethod.toLowerCase() != "null") {
                 switch (args.getNodeMethod) {
                     case "id":
@@ -4133,6 +4138,38 @@ function dataChangeHandler(args) {
                 statusBox('info', 'NULL', 'No se ha modificado ningún valor', 'add', 'NULL');
             } else {
                 $("#panel-8-input-5").addClass("disabled").attr("disabled", "disabled");
+
+                var fileInput = "null";
+                for (var x = 0; x < nodesToUpdateArray.length; x++) {
+                    if ($(nodesToUpdateArray[x]).attr("type") == "file") {
+                        fileInput = nodesToUpdateArray[x];
+                        break;
+                    }
+                }
+                if (fileInput != "null") {
+                    if (window.File && window.FileReader && window.FileList && window.Blob) {
+                        if (fileInput.files.length > 0) {
+                            if (fileInput.files[0].size < maxFileSize) {
+                                file = fileInput.files[0];
+                            } else {
+                                statusBox('warning','NULL','El archivo cargado super el tamaño máxim de 15MB','add','NULL');
+                                $("#panel-8-input-5").removeClass("disabled").removeAttr("disabled");
+                                return false;
+                            }
+                            if (file != "null") {
+                                if (!functionHandler({functionName: "mimeChecker", fileType: fileInput.files[0].type})) {
+                                    statusBox('warning', 'NULL', 'El archivo cargado no es permitido (PNG, JPEG, JPG)', 'add', 'NULL');
+                                    $("#panel-8-input-5").removeClass("disabled").removeAttr("disabled");
+                                    return false;
+                                }
+                            }
+                        }
+                    } else {
+                        statusBox('danger', 'NULL', 'El buscador web utilizado no sporta los plug-in necesarios para cargar archivos, por favor utilice un buscador web diferente', 'add', '6000');
+                        $("#panel-8-input-5").removeClass("disabled").removeAttr("disabled");
+                        return false;
+                    }
+                }
 
                 var jsonData = new Object();
                 jsonData.changeHeader = args.changeName;
@@ -4170,13 +4207,21 @@ function dataChangeHandler(args) {
 
                 jsonData = JSON.stringify(jsonData);
 
+                var data = new FormData();
+                data.append("jsondata", jsonData);
+                if (file != "null") {
+                    data.append("filedata", fileInput.files[0], fileInput.files[0].name);
+                }
+
                 statusBox('loading', 'NULL', 'NULL', 'add', 'NULL');
                 $.ajax({
-                    contentType: "application/x-www-form-urlencoded",
-                    url: "php/index_admin_data_change_handler.php",
-                    type: "POST",
-                    data: jsonData,
-                    dataType: "json",
+                    url:"php/index_admin_data_change_handler.php",
+                    type:"POST",
+                    data: data,
+                    cache: false,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
                     success: function (jsonResponse) {
                         var error = errorHandler({
                             errorCode: jsonResponse.statusCode
@@ -4197,68 +4242,6 @@ function dataChangeHandler(args) {
                         $("#panel-8-input-5").removeClass("disabled").removeAttr("disabled");
                     }
                 });
-            }
-
-            break;
-        case "kardexRegistry":
-
-            var checkFormInputs = functionHandler({
-                functionName: "checkForEmptyFormFields"
-                , getNodeMethod: args.changeOptions.getNodeMethod
-                , nodeItem: args.changeOptions.nodeItem
-            });
-
-            if (checkFormInputs === false) {
-
-                var jsonData = new Object();
-
-                jsonData.changeHeader = args.changeName;
-                jsonData.changeArguments = new Object();
-                jsonData.changeArguments.productId = $("#panel-9").attr("data-idholder");
-                jsonData.changeArguments.movementDate = $("#panel-9-input-1").val();
-                jsonData.changeArguments.movementAdded = parseInt($("#panel-9-input-2").val(),10);
-                jsonData.changeArguments.movementRemoved = parseInt($("#panel-9-input-3").val(),10);
-                jsonData.changeArguments.movementReason = $("#panel-9-input-4").val();
-                jsonData.changeArguments.movementTotal = parseInt($("#panel-9-input-5").val(),10);
-
-                if (jsonData.changeArguments.movementRemoved > jsonData.changeArguments.movementTotal) {
-                    statusBox('danger', 'NULL', 'La cantidad de items en salida es mayor al saldo actual para este producto', 'add', '5000');
-                } else {
-                    $("#panel-9-input-6").addClass("disabled").attr("disabled", "disabled");
-
-                    jsonData.changeArguments.movementTotal += jsonData.changeArguments.movementAdded;
-                    jsonData.changeArguments.movementTotal -= jsonData.changeArguments.movementRemoved;
-
-                    jsonData = JSON.stringify(jsonData);
-
-                    statusBox('loading','NULL','NULL','add','NULL');
-                    $.ajax({
-                        contentType: "application/x-www-form-urlencoded",
-                        url:"php/index_admin_data_change_handler.php",
-                        type:"POST",
-                        data: jsonData,
-                        dataType:"json",
-                        success: function(jsonResponse) {
-                            var error = errorHandler({
-                                errorCode: jsonResponse.statusCode
-                                ,errorIcon: "warning"
-                                ,errorTitle: "Se ha encontrado una excepción"
-                                ,errorMessage: jsonResponse.errorMessage
-                            });
-                            if (!error) {
-                                responseHandler({
-                                    jsonResponse: jsonResponse
-                                    ,responseName: args.changeName
-                                    ,passedArguments: args
-                                });
-                            }
-                        },
-                        complete: function() {
-                            statusBox('loading','NULL','NULL','remove','NULL');
-                            $("#panel-9-input-6").removeClass("disabled").removeAttr("disabled");
-                        }
-                    });
-                }
             }
 
             break;

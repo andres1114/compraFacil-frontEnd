@@ -341,10 +341,10 @@
                                         <input type="checkbox" id="table-4-checkall"/>
                                     </th>
                                     <th class="center-text pointer">IT</th>
-                                    <th class="center-text pointer">Producto</th>
-                                    <th class="center-text pointer">Tipo producto</th>
-                                    <th class="center-text pointer">Proveedor</th>
-                                    <th class="center-text pointer">Precio por unidad</th>
+                                    <th class="center-text pointer">Nombre Almacén</th>
+                                    <th class="center-text pointer">Nombre Producto</th>
+                                    <th class="center-text pointer">Precio Producto</th>
+                                    <th class="center-text pointer">Imagen Producto</th>                                    
                                     <th class="center-text pointer">Acción</th>
                                     <th class="center-text pointer">Estado</th>
                                 </tr>
@@ -764,20 +764,20 @@
                     <div class="panel-body-container" data-item="panel-body-container" id="form-7">
                         <div class="row no-margin no-padding">
                             <div class="form-group">
-                                <label for="panel-7-input-1">Proveedor de producto<span class="required-field" title="Requerido">*</span></label>
+                                <label for="panel-7-input-1">Almacén de producto<span class="required-field" title="Requerido">*</span></label>
                                 <select class="form-control input-sm" id="panel-7-input-1" required></select>
                             </div>
                             <div class="form-group">
-                                <label for="panel-7-input-2">Tipo de producto<span class="required-field" title="Requerido">*</span></label>
-                                <select class="form-control input-sm" id="panel-7-input-2" required></select>
+                                <label for="panel-7-input-2">Nombre de producto<span class="required-field" title="Requerido">*</span></label>
+                                <input type="text" class="form-control input-sm" id="panel-7-input-2" required/>
                             </div>
                             <div class="form-group">
-                                <label for="panel-7-input-3">Nombre de producto<span class="required-field" title="Requerido">*</span></label>
-                                <input type="text" class="form-control input-sm" id="panel-7-input-3" required/>
+                                <label for="panel-7-input-3">Precio de producto<span class="required-field" title="Requerido">*</span></label>
+                                <input type="number" class="form-control input-sm" id="panel-7-input-3"/>
                             </div>
                             <div class="form-group">
-                                <label for="panel-7-input-4">Precio de producto<span class="required-field" title="Requerido">*</span></label>
-                                <input type="number" class="form-control input-sm" id="panel-7-input-4"/>
+                                <label for="panel-7-input-4">Imagen de producto</label>
+                                <input type="file" class="form-control input-sm" id="panel-7-input-4"/>
                             </div>
                         </div>
                         <hr/>
@@ -808,21 +808,26 @@
                     <div class="panel-body-container" data-item="panel-body-container" id="form-8">
                         <div class="row no-margin no-padding">
                             <div class="form-group">
-                                <label for="panel-8-input-1">Proveedor de producto</label>
+                                <label for="panel-8-input-1">Almacén de producto</label>
                                 <select class="form-control input-sm" id="panel-8-input-1" data-update-field="1" data-field-to-update="1"></select>
                             </div>
                             <div class="form-group">
-                                <label for="panel-8-input-2">Tipo de producto</label>
-                                <select class="form-control input-sm" id="panel-8-input-2" data-update-field="1" data-field-to-update="2"></select>
+                                <label for="panel-8-input-2">Nombre de producto</label>
+                                <input type="text" class="form-control input-sm" id="panel-8-input-2" data-update-field="1" data-field-to-update="2"></input>
                             </div>
                             <div class="form-group">
-                                <label for="panel-8-input-3">Nombre de producto</label>
+                                <label for="panel-8-input-3">precio de producto</label>
                                 <input type="text" class="form-control input-sm" id="panel-8-input-3" data-update-field="1" data-field-to-update="3"/>
-                            </div>
+                            </div>                            
                             <div class="form-group">
-                                <label for="panel-8-input-4">Precio de producto</label>
-                                <input type="number" class="form-control input-sm" id="panel-8-input-4" data-update-field="1" data-field-to-update="4"/>
-                            </div>
+                                <label for="panel-8-input-4">Logo vigente del producto</label>
+                                <div class="well tbl-text-align-center">
+                                    <img id="panel-8-img-1" class="image-logo-2" src="" alt="Product Logo" style="display:none;"/>
+                                    <h3 id="panel-8-no-image-1" style="display:none;">Sin imagen</h3>
+                                </div>
+                                <label for="panel-8-input-4">Nueva imagen</label>
+                                <input type="file" class="form-control input-sm" id="panel-8-input-4" data-update-field="1" data-field-to-update="4"/>
+                            </div>               
                         </div>
                         <hr/>
                         <div class="row no-margin no-padding">

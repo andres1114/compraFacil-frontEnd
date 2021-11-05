@@ -220,6 +220,15 @@ function main() {
             }
         });
     });
+    $("#menu-4-option-2").bind("click", function(){
+        callHandler({
+            callName: "showProducts"
+            ,callArguments: null
+            ,getNodeMethod: "id"
+            ,callbackNode: "table-4"
+            ,deleteNodeContent: true
+        });
+    });
     $("#menu-7-option-1").bind("click", function(){
         functionHandler({
             functionName: 'windowHandler'

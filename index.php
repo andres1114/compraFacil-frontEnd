@@ -96,6 +96,10 @@
                                 <span class="far fa-chevron-right" style="margin-right: 5px;"></span>
                                 <span>Agregar producto</span>
                             </li>
+                            <li class="list-group-item pointer unselectable cube-box" id="menu-4-option-2">
+                                <span class="far fa-chevron-right" style="margin-right: 5px;"></span>
+                                <span>Recargar tabla</span>
+                            </li>
                             <li class="list-group-item pointer unselectable cube-box" onclick="functionHandler({functionName: 'closeMenuItem'})">
                                 <span class="far fa-chevron-right" style="margin-right: 5px;"></span>
                                 <span>Volver a menú</span>

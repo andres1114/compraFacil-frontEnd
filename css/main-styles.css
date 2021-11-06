@@ -42,6 +42,12 @@
 .background-color-1 {
     background-image: linear-gradient(to bottom, #ebebeb 0%, #ebebeb 100%) !important;
 }
+.background-color-2 {
+    background-image: linear-gradient(to bottom, #D65004 0%, #D65004 100%) !important;
+}
+.background-color-3 {
+    background-image: linear-gradient(to bottom, #fff 0%, #fff 100%) !important;
+}
 .full-height-vh {
     height: 100vh;
     max-height: 100vh;
@@ -311,4 +317,21 @@
 .image-logo-2 {
     width: 290px;
     height: 170px;
+}
+.main-navbar {
+    padding: 30px 30px;
+}
+.main-table-product-image {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+.main-table-grocery-image {
+    height: 80px;
+    width: 90px;
+    border-radius: 50%;
+}
+.main-table-grocery-stock-image {
+    height: 200px;
+    width: 300px;
 }

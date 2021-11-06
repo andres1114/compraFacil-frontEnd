@@ -58,7 +58,7 @@ $session_handler_permission_code = array(1,2);
                     <div class="panel panel-default margin-top-0" style="padding:20px;">
                         <div class="row">
                             <div class="col-lg-12 center-text">
-                                <h1 class="text-bold">¡Realiza la búsqueda de tus productos de la cantas familiar!</h1>
+                                <h1 class="text-bold">¡Realiza la búsqueda de tus productos de la canasta familiar!</h1>
                                 <h3>¡Compara los precios y toma la mejor decisión!</h3>
                                 <img class="main-table-grocery-stock-image" src="css/images/grocery_bags.png" alt="Grocery bags">
                             </div>

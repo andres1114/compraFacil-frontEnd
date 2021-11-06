@@ -33,7 +33,7 @@ $session_handler_permission_code = array(1,2);
                 <div class="row">
                     <div class="col-lg-12 center-text text-white text-bold">
                         <h2>Compra Fácil</h2>
-                        <p>Busqueda de productos</p>
+                        <p>Búsqueda de productos</p>
                     </div>
                 </div>
                 <div class="form-group" id="form-1">

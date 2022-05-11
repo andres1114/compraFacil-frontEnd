@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Ferreteria CRM</title>
+        <title>CompraFácil</title>
         <link rel="shortcut icon" href="css/images/favicon.png">
         <link href="css/bootstrap.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap-theme.css" rel="stylesheet" media="screen">

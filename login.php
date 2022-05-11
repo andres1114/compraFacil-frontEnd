@@ -64,7 +64,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="center-text" id="copyright-div" style="display: none;">&copy; Copyright Ferreteria 2020</div>
+                    <div class="center-text" id="copyright-div" style="display: none;">&copy; Copyright CompraFácil 2022</div>
                 </div>
             </div>
         </div>
